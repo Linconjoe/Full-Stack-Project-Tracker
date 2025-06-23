@@ -1,4 +1,4 @@
-# GProject Plan: 1990 GMC Sierra 350 EFI Engine Rebuild to 300-325 HP
+# GMC Project Plan: 1990 GMC Sierra 350 EFI Engine Rebuild to 300-325 HP
 This report presents a comprehensive project plan for rebuilding a 1990 GMC Sierra's 350 cubic inch (5.7L) engine, now upgraded to **Electronic Fuel Injection (EFI) via a Throttle Body Injection (TBI) system**, with the objective of reliably achieving 300-325 horsepower. The plan meticulously details strategic component upgrades, emphasizes precise assembly techniques, and outlines critical tuning procedures. A core principle of this project is the exclusive use of new or factory-refurbished components, ensuring enhanced performance while maintaining the integrity and longevity of the vehicle, especially for **reliable long-distance trips (6-7 hours)**.
 
 ## Table of Contents
