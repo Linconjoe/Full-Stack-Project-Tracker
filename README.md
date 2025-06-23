@@ -7,9 +7,10 @@ This report presents a comprehensive project plan for rebuilding a 1990 GMC Sier
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
+- [Updating Git README.md](#Updating-Git-README.md)
 - [License](#license)
-- [Contact](#contact)
+
+
 
 ## Features
 
@@ -28,6 +29,7 @@ To get this project up and running on your local machine, follow these steps:
 * Python 3.8+
 * pip (Python package installer)
 * Git
+* Visual Studio Code
 
 ### Steps
 
@@ -54,7 +56,10 @@ After installation, you can start the main application script:
 
 ```bash
 # Make sure your virtual environment is active
-python src/main_app.py
+NOTE:To start project open command prompt issue following.
+1. cd ~/gmc_sierra_pro_project - issue at command prompt
+2. source venv/bin/activate - issue at command prompt
+3. http://127.0.0.1:5000 - access via web-browser
 
 ## Project Structure
 
@@ -70,3 +75,9 @@ python src/main_app.py
 ├── README.md            # This file
 └── .gitignore           # Files/directories ignored by Git
 
+## Updating Git README.md
+* edit README.md in Visual studio Code.
+* git status
+* git add README.md
+* git commit -m "Add comprehensive README.md"
+* git push origin main
