@@ -1,15 +1,14 @@
-# Interactive Web Application Project Guide
+# Full-Stack Project Tracker
 
-This repository hosts the technical components for an interactive web application designed to track and manage project progress and expenditures. While the application currently displays data for a 1990 GMC Sierra engine swap and MPFI conversion, this README focuses on the architecture and operational aspects of the web application itself, providing guidance on setup, execution, and troubleshooting.
+This repository hosts a full-stack web application designed to track and manage project progress and expenditures. While the application's current dataset is for a 1990 GMC Sierra engine swap, this project serves as a demonstration of technical skills in web development, database management, and data visualization, and is easily adaptable for tracking any type of project.
 
 ## ⚙️ Technical Stack
 
 The application is built using the following technologies:
-
-* **Backend:** Python (Flask framework)
-* **Database:** SQLite3
-* **Frontend:** HTML, CSS (Tailwind CSS via CDN), JavaScript (Chart.js for visualizations)
-* **Development Environment:** Visual Studio Code (VS Code)
+-   **Backend:** Python (Flask framework)
+-   **Database:** SQLite3
+-   **Frontend:** HTML, CSS (Tailwind CSS via CDN), JavaScript (Chart.js for visualizations)
+-   **Development Environment:** Visual Studio Code (VS Code)
 
 ## 🚀 Getting Started
 
@@ -18,16 +17,14 @@ Follow these steps to set up and run the application on your local machine.
 ### 1. Prerequisites
 
 Ensure you have the following installed:
-
-* **Python 3.x:** (e.g., Python 3.8+)
-* **pip:** Python's package installer (usually comes with Python)
-* **Git:** For cloning this repository.
-* **Visual Studio Code (VS Code):** Recommended IDE for development.
+-   **Python 3.x:** (e.g., Python 3.8+)
+-   **pip:** Python's package installer (usually comes with Python)
+-   **Git:** For cloning this repository.
+-   **Visual Studio Code (VS Code):** Recommended IDE for development.
 
 ### 2. Clone the Repository
 
 Open your terminal or VS Code's integrated terminal and clone this repository:
-
 ```bash
-git clone git@github.com:Linconjoe/gmc_sierra_pro_project.git
-cd gmc_sierra_pro_project
+git clone git@github.com:Linconjoe/Full-Stack-Project-Tracker.git
+cd Full-Stack-Project-Tracker
