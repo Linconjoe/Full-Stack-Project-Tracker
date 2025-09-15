@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1990 GMC Sierra 350 EFI Rebuild - Interactive Guide</title>
+    <title>1990 GMC Sierra 383 Stroker MPFI Swap - Interactive Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -61,15 +61,15 @@
 
     <nav class="bg-slate-800 text-white p-4 fixed w-full top-0 z-50 shadow-lg">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
-            <h1 class="text-xl font-bold">350 EFI Rebuild Guide</h1>
+            <h1 class="text-xl font-bold">383 Stroker MPFI Swap Guide</h1>
             <button id="navToggle" class="md:hidden block text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
             <div id="navMenu" class="w-full md:flex md:items-center md:w-auto hidden">
                 <ul class="md:flex md:space-x-4 space-y-2 md:space-y-0 pt-4 md:pt-0">
                     <li><a href="#introduction" class="hover:text-sky-300">Introduction</a></li>
-                    <li><a href="#phase1" class="hover:text-sky-300">Phase 1: Prep & Machining</a></li>
-                    <li><a href="#phase2" class="hover:text-sky-300">Phase 2: Core Components</a></li>
+                    <li><a href="#phase1" class="hover:text-sky-300">Phase 1: Engine Removal & Prep</a></li>
+                    <li><a href="#phase2" class="hover:text-sky-300">Phase 2: Engine & MPFI Install</a></li>
                     <li><a href="#phase3" class="hover:text-sky-300">Phase 3: Systems Upgrades</a></li>
                     <li><a href="#phase4" class="hover:text-sky-300">Phase 4: Supporting Systems</a></li>
                     <li><a href="#phase5" class="hover:text-sky-300">Phase 5: Tuning</a></li>
@@ -84,179 +84,91 @@
 
         <section id="introduction" class="content-section min-h-screen flex flex-col justify-center">
             <div class="bg-white p-8 rounded-lg shadow-xl">
-                <h2 class="text-4xl font-bold text-sky-700 mb-6">Project Plan: 1990 GMC Sierra 350 EFI Engine Rebuild to 300-325 HP</h2>
-                <p class="text-lg mb-4">This report presents a comprehensive project plan for rebuilding a 1990 GMC Sierra's 350 cubic inch (5.7L) engine, now upgraded to **Electronic Fuel Injection (EFI) via a Throttle Body Injection (TBI) system**, with the objective of reliably achieving 300-325 horsepower. The plan meticulously details strategic component upgrades, emphasizes precise assembly techniques, and outlines critical tuning procedures. A core principle of this project is the exclusive use of new or factory-refurbished components, ensuring enhanced performance while maintaining the integrity and longevity of the vehicle, especially for **reliable long-distance trips (6-7 hours)**.</p>
-                <p class="text-lg mb-4">Achieving a 300-325 horsepower output from a stock 350 engine, which typically produces between 175 and 200 horsepower, necessitates a synergistic approach. This involves significant improvements in airflow through high-flow cylinder heads, an optimized intake manifold, and a free-flowing exhaust system. Furthermore, a carefully selected performance camshaft will optimize valve timing, fuel delivery will be enhanced via the TBI unit and precise pressure regulation, and a robust ignition system will ensure complete combustion. Crucially, supporting systems like the **cooling system, oil pump, and alternator** will be upgraded to ensure exceptional reliability and driveability during extended operation. The expected outcomes include a substantial increase in horsepower and torque, improved throttle response, and an overall enhanced driving experience, making the vehicle significantly more capable for various street and touring applications.</p>
-                <p class="text-lg mb-4">The project is systematically segmented into distinct, interdependent phases: Engine Disassembly & Machining, Selection and Installation of Core Engine Components, Upgrades to Fuel, Air, and Ignition Systems, Reinforcement of Supporting Systems & Driveline, and meticulous Final Tuning. Financial considerations are addressed by detailing component costs; budget estimates for a 350 Chevy build can range from over $3,000 for performance parts alone, excluding essential machine work. Machine work itself represents a significant investment, as detailed within Phase 1. This report provides detailed cost estimates for individual components where available, facilitating accurate project budgeting and planning.</p>
-                <h3 class="text-2xl font-bold text-sky-700 mb-4">Introduction: The 300-325 HP EFI 350 Vision for Reliability</h3>
-                <h4 class="text-xl font-semibold text-slate-800 mb-2">Understanding the 1990 GMC Sierra's 350 Engine and EFI Upgrade</h4>
-                <p class="mb-4">The 1990 GMC Sierra's 350 cubic inch (5.7L) engine, originally equipped with Throttle Body Injection (TBI), was a ubiquitous powerplant. While reliable, its stock output was modest. This plan upgrades it to a modern **Throttle Body Injection (TBI) EFI system** to achieve 300-325 HP. The 350 engine provides a solid and adaptable cast-iron foundation for performance upgrades due to its durable construction and widespread availability. Its enduring popularity among enthusiasts stems from its rebuildability and potential for significant power increases.</p>
-                <h4 class="text-xl font-semibold text-slate-800 mb-2">Feasibility and Advantages of Achieving 300-325 HP with TBI EFI for Long Trips</h4>
-                <p class="mb-4">Achieving 300-325 horsepower from a 350 Chevy engine is readily attainable. By converting to a modern TBI EFI system, we gain superior fuel atomization, more precise fuel control, and self-learning capabilities compared to the original TBI or a carburetor. This leads to better cold starts, improved drivability, enhanced fuel economy, and higher ultimate power potential. For long trips, the consistent and adaptive fueling of EFI systems, combined with robust cooling, lubrication, and electrical systems, ensures reliable and stress-free operation. Strategic selection of performance components, coupled with proper ECM tuning, will effectively mitigate challenges and allow the TBI EFI platform to support the 300-325 horsepower target reliably for extended periods.</p>
+                <h2 class="text-4xl font-bold text-sky-700 mb-6">Project Plan: 1990 GMC Sierra 383 Stroker Engine Swap & MPFI Conversion (Targeting 420+ HP)</h2>
+                <p class="text-lg mb-4">This project outlines the plan for fundamentally upgrading a 1990 GMC Sierra by **replacing its original 350 engine with a new <a href="https://blueprintengines.com/products/efi-vortec-383ci-stroker-crate-engine-small-block-gm" target="_blank" class="text-sky-600 hover:underline">BluePrint Engines 383 cubic inch (6.3L) Stroker Crate Engine</a>**. This powerful engine comes with Vortec-style heads and is EFI-ready. The fuel delivery system will be upgraded to a **Multi-Port Fuel Injection (MPFI) system from <a href="https://acesefi.com/products/wild-card%E2%84%A2-efi?variant=41248171098318" target="_blank" class="text-sky-600 hover:underline">ACES EFI (Wild Card™)</a>**, aiming for an estimated output of **420+ horsepower and 450+ lb-ft of torque**.</p>
+                <p class="text-lg mb-4">The plan details the strategic installation of the crate engine, integration of the advanced MPFI system, and comprehensive reinforcement of supporting vehicle systems. A core principle of this project is to achieve significantly enhanced performance while maintaining the integrity, longevity, and **exceptional reliability for long-distance trips (6-7 hours)**.</p>
+                <p class="text-lg mb-4">This upgrade will provide a substantial increase in horsepower and torque, improved throttle response, and an overall enhanced driving experience, making the vehicle significantly more capable for various street and touring applications. Financial considerations are addressed by detailing component costs; however, the shift to a crate engine and MPFI system significantly alters the budget from a traditional rebuild. This report provides detailed cost estimates for individual components where available, facilitating accurate project budgeting and planning.</p>
+                <h3 class="text-2xl font-bold text-sky-700 mb-4">Introduction: The 420+ HP MPFI 383 Stroker Vision for Reliability</h3>
+                <h4 class="text-xl font-semibold text-slate-800 mb-2">Understanding the 1990 GMC Sierra's New 383 Engine and MPFI Upgrade</h4>
+                <p class="mb-4">The 1990 GMC Sierra's original 350 cubic inch (5.7L) engine is being replaced by a more powerful and modern **BluePrint Engines 383ci Stroker Crate Engine**. This engine provides a robust foundation for high-performance applications. By utilizing a cutting-edge **ACES EFI Wild Card™ Multi-Port Fuel Injection (MPFI) system**, we aim for superior fuel atomization, more precise fuel control, and advanced self-learning capabilities. This combination ensures better cold starts, improved drivability, enhanced fuel economy, and significantly higher ultimate power potential compared to the original TBI or a carburetor. The inherent durability of the 383 stroker and the precision of MPFI are critical for achieving the high horsepower target and ensuring **reliable, stress-free operation during long trips**.</p>
                 <h4 class="xl font-semibold text-slate-800 mb-2">Report Structure and Project Plan Philosophy</h4>
-                <p class="mb-4">This report is meticulously structured to guide the user through a methodical and successful engine rebuild. It progresses logically from the initial assessment and component preparation to the detailed selection and installation of performance parts, culminating in critical tuning procedures. The underlying philosophy emphasizes a holistic approach, ensuring that all interconnected vehicle systems are appropriately upgraded and reinforced to reliably support the increased power output and ensure **exceptional reliability for long-distance driving**. This comprehensive perspective prevents the creation of new weak points in the vehicle's powertrain. A strict adherence to using only new or factory-refurbished components is maintained throughout the report, guaranteeing reliability and longevity for the rebuilt engine and its supporting systems, thereby maximizing the return on investment for the performance enhancement.</p>
+                <p class="mb-4">This report is meticulously structured to guide the user through a methodical and successful engine swap and MPFI conversion. It progresses logically from the initial assessment and component preparation to the detailed installation of the crate engine and MPFI system, culminating in critical tuning procedures. The underlying philosophy emphasizes a holistic approach, ensuring that all interconnected vehicle systems are appropriately upgraded and reinforced to reliably support the increased power output and ensure **exceptional reliability for long-distance driving**. This comprehensive perspective prevents the creation of new weak points in the vehicle's powertrain. A strict adherence to using only new or factory-refurbished components is maintained throughout the report, guaranteeing reliability and longevity for the upgraded engine and its supporting systems, thereby maximizing the return on investment for the performance enhancement.</p>
                 <p class="text-sm text-slate-600">Navigate through the sections using the top bar to explore each phase of the project.</p>
             </div>
         </section>
 
         <section id="phase1" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 1: Engine Disassembly, Inspection, and Machining</h2>
+            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 1: Original Engine Removal & Prep for Crate Engine</h2>
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Initial Assessment and Engine Removal</h3>
-                <p class="mb-2">The project commences with a thorough initial assessment of the existing engine's condition. This preliminary step is crucial for identifying any pre-existing issues that might affect the rebuild, such as persistent oil leaks, signs of chronic overheating, or a noticeable loss of power, which are common problems observed in aging Chevy 350 engines. A comprehensive evaluation at this stage helps determine the extent of wear and potential damage, guiding subsequent decisions regarding component replacement or reconditioning. Following this assessment, the engine must be safely removed from the vehicle. This operation requires appropriate lifting equipment, such as a robust engine hoist or lift, to ensure the safety of the technician and prevent any damage to the engine or vehicle during the extraction process. Proper preparation, including disconnecting all electrical, fuel, and cooling lines, is essential before lifting the engine.</p>
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3 mt-4">Detailed Component Inspection and Wear Analysis</h3>
-                <p class="mb-2">Upon removal, the engine is completely disassembled, and each individual component undergoes meticulous inspection for signs of wear, cracks, or damage. This critical evaluation includes assessing the reusability of core components such as the cylinder block, crankshaft, and connecting rods, which are foundational to the engine's integrity. Cylinder bores are checked for taper and out-of-round conditions, crankshaft journals are inspected for scoring or excessive wear, and connecting rods are verified for straightness and twist. Prior to any further work or measurement, all parts must be thoroughly cleaned. This involves using a soap and water solution, a solvent tank, or brake cleaner to remove accumulated debris, grime, and oil from operation, as well as any residue from previous machining processes. This cleaning is vital as it allows for accurate inspection and measurement, ensuring that no hidden defects compromise the rebuild.</p>
+                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Initial Assessment and Original Engine Removal</h3>
+                <p class="mb-2">The project commences with the safe and thorough removal of the existing 350 engine. This step is crucial for preparing the engine bay for the new, larger, and more powerful BluePrint Engines 383 Stroker crate engine and ACES EFI MPFI system. This operation requires appropriate lifting equipment, such as a robust engine hoist or lift, to ensure the safety of the technician and prevent any damage to the engine or vehicle during the extraction process. Proper preparation, including disconnecting all electrical, fuel, and cooling lines, is essential before lifting the engine.</p>
+                <h3 class="text-2xl font-semibold text-slate-800 mb-3 mt-4">Engine Bay & Chassis Preparation</h3>
+                <p class="mb-2">With the original engine removed, the engine bay and chassis will undergo preparation. This includes thorough cleaning, inspection of engine mounts for wear or damage, and planning the routing for new wiring harnesses, fuel lines (for the MPFI system), and cooling lines. Any necessary modifications for clearance or fitment of the larger 383 stroker will be identified and addressed in this phase.</p>
             </div>
 
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-4">Estimated Engine Machining Services & Costs (V8)</h3>
-                <p class="mb-4">Professional machining is vital for establishing a precision foundation for increased power. The table and chart below summarize typical services and their estimated costs. These services ensure core components are effectively "refurbished" for performance use.</p>
-                <div class="chart-container mb-8">
-                    <canvas id="machiningCostsChart"></canvas>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="min-w-full divide-y divide-slate-200">
-                        <thead class="bg-slate-100">
-                            <tr>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Service Category</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Specific Service</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Est. Cost (USD)</th>
-                                <th class="px-6 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody class="bg-white divide-y divide-slate-200">
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Block Work</td><td class="px-6 py-4 whitespace-nowrap">Hot Tank / Cleaning</td><td class="px-6 py-4 whitespace-nowrap">$60 - $75</td><td class="px-6 py-4 whitespace-nowrap">Per block</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Block Work</td><td class="px-6 py-4 whitespace-nowrap">Magnaflux (Crack Detection)</td><td class="px-6 py-4 whitespace-nowrap">$60 - $75</td><td class="px-6 py-4 whitespace-nowrap">Per block</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Block Work</td><td class="px-6 py-4 whitespace-nowrap">Bore & Hone Cylinders</td><td class="px-6 py-4 whitespace-nowrap">$325 - $350</td><td class="px-6 py-4 whitespace-nowrap">V8 block</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Block Work</td><td class="px-6 py-4 whitespace-nowrap">Deck Cylinder Block</td><td class="px-6 py-4 whitespace-nowrap">$200 - $220</td><td class="px-6 py-4 whitespace-nowrap">V8 block, square deck</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Block Work</td><td class="px-6 py-4 whitespace-nowrap">Line Bore Block</td><td class="px-6 py-4 whitespace-nowrap">$400</td><td class="px-6 py-4 whitespace-nowrap">Standard</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Crankshaft Work</td><td class="px-6 py-4 whitespace-nowrap">Grind & Polish Journals</td><td class="px-6 py-4 whitespace-nowrap">$250 - $350</td><td class="px-6 py-4 whitespace-nowrap">5-main V8 crank</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Crankshaft Work</td><td class="px-6 py-4 whitespace-nowrap">Balance Rotating Assembly</td><td class="px-6 py-4 whitespace-nowrap">$375 - $400</td><td class="px-6 py-4 whitespace-nowrap">V8 rotating assembly</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Connecting Rods</td><td class="px-6 py-4 whitespace-nowrap">Recondition Rods (Resize)</td><td class="px-6 py-4 whitespace-nowrap">$25 - $55 (per rod)</td><td class="px-6 py-4 whitespace-nowrap">Per rod</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Connecting Rods</td><td class="px-6 py-4 whitespace-nowrap">Rebush Rods (if needed)</td><td class="px-6 py-4 whitespace-nowrap">$35 - $35 (per rod)</td><td class="px-6 py-4 whitespace-nowrap">Per rod, plus bushing cost</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Cylinder Head Work</td><td class="px-6 py-4 whitespace-nowrap">Valve Grind (3-angle valve job)</td><td class="px-6 py-4 whitespace-nowrap">$450 - $550 (pair)</td><td class="px-6 py-4 whitespace-nowrap">Per pair, includes cleaning & assembly</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Cylinder Head Work</td><td class="px-6 py-4 whitespace-nowrap">Surface Grind / Mill Heads</td><td class="px-6 py-4 whitespace-nowrap">$65 - $85 (per head)</td><td class="px-6 py-4 whitespace-nowrap">Per head, up to.030"</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Cylinder Head Work</td><td class="px-6 py-4 whitespace-nowrap">Install Valve Guides</td><td class="px-6 py-4 whitespace-nowrap">$75 - $100</td><td class="px-6 py-4 whitespace-nowrap">Per guide, plus guide cost</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Cylinder Head Work</td><td class="px-6 py-4 whitespace-nowrap">Pressure Test Heads</td><td class="px-6 py-4 whitespace-nowrap">$80 - $80</td><td class="px-6 py-4 whitespace-nowrap">Per head</td></tr>
-                            <tr><td class="px-6 py-4 whitespace-nowrap font-medium">Assembly</td><td class="px-6 py-4 whitespace-nowrap">Engine Assembly (Labor)</td><td class="px-6 py-4 whitespace-nowrap">$650+</td><td class="px-6 py-4 whitespace-nowrap">Hourly rate typically $115-$125/hr</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-             <div class="bg-white p-6 rounded-lg shadow-lg">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Required Specialized Tools <span class="text-sky-600 text-sm">(Click to expand)</span></h3>
                 <div class="card-detail">
-                    <p>A successful performance rebuild requires more than standard tools. Key specialized tools include:</p>
+                    <p>A successful engine swap requires specialized tools beyond standard garage equipment. Key tools for this phase include:</p>
                     <ul class="list-disc list-inside mt-2 space-y-1">
                         <li>Engine hoist/lift and engine stand</li>
-                        <li>High-quality torque wrench</li>
-                        <li>Piston ring filers for custom ring gapping and piston ring compressors for safely guiding pistons into the cylinder bores.</li>
-                        <li>Valve spring compressor</li>
-                        <li>Plastigauge for accurately checking bearing clearances.</li>
-                        <li>Dial bore gauge and micrometer for precise measurements of cylinder bores, crankshaft journals, and piston clearances.</li>
-                        <li>Camshaft degree wheel (optional but recommended)</li>
-                        <li>Pushrod length checker</li>
+                        <li>Transmission jack (if removing transmission)</li>
+                        <li>Various hand tools (sockets, wrenches, screwdrivers)</li>
+                        <li>Fluid drain pans</li>
+                        <li>Wire cutters/strippers for disconnecting electrical components</li>
+                        <li>Line wrenches for fuel and brake lines</li>
                     </ul>
-                    <p class="mt-2 text-sm">Investing in these tools is crucial for precision and achieving the 300-325 HP goal.</p>
+                    <p class="mt-2 text-sm">Ensure all safety precautions are followed during engine removal.</p>
                 </div>
             </div>
         </section>
 
         <section id="phase2" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 2: Core Engine Performance Components</h2>
+            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 2: Crate Engine & MPFI Installation</h2>
             <p class="mb-6 text-lg">This phase focuses on selecting and installing the heart of your performance engine: cylinder heads, camshaft, rotating assembly, valvetrain, and critical lubrication components. These components must work synergistically for optimal airflow, valve timing, durability, and **sustained reliability for long trips**.</p>
             
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Parts Costs for Phase 2</h3>
+                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Key Component Purchases & Estimated Costs for Phase 2</h3>
                 <ul class="list-disc list-inside space-y-1 text-lg">
-                    <li>**Minimum Estimated Cost:** ~$1,980</li>
-                    <li>**Mid-Range Estimated Cost:** ~$2,475</li>
+                    <li>**BluePrint Engines 383ci Stroker Crate Engine:** _(Refer to <a href="https://blueprintengines.com/products/efi-vortec-383ci-stroker-crate-engine-small-block-gm" target="_blank" class="text-sky-600 hover:underline">BluePrint Engines website</a> for current pricing)_</li>
+                    <li>**ACES EFI Wild Card™ Multi-Port Fuel Injection System:** _(Refer to <a href="https://acesefi.com/products/wild-card%E2%84%A2-efi?variant=41248171098318" target="_blank" class="text-sky-600 hover:underline">ACES EFI website</a> for current pricing)_</li>
+                    <li>**Engine Mounts, Hoses, Fluids, Misc. Hardware:** ~$500 - $1000 (Initial estimates, highly variable)</li>
                 </ul>
-                <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts, avoiding high-end components.</p>
+                <p class="text-sm text-slate-600 mt-2">These are the primary major purchases for the engine and fuel system. Costs will vary based on supplier and specific options.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Cylinder Heads <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">BluePrint 383 Stroker Installation <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Optimal airflow. High-flowing aluminum or Vortec cast iron heads are key for 300-325 HP.</p>
-                        <p class="font-semibold mt-2">Options (New/Refurbished):</p>
+                        <p class="font-semibold">Goal:</p> <p>Safely and correctly install the pre-assembled BluePrint 383 Stroker crate engine into the vehicle's engine bay, connecting it to the transmission and all necessary vehicle systems.</p>
+                        <p class="font-semibold mt-2">Key Steps:</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**Chevrolet Performance Cast Iron Vortec (PN: NAL-12691728 or NAL-19331470)** - require Vortec intake & self-aligning rockers. Both are available new. (Est. cost: $800 - $1100 per pair)</li>
-                            <li>**Flo-Tek Assembled SBC Aluminum Heads (PN: Flo-Tek 102505)** - 180cc intake, 64cc chambers, come assembled with 2.020/1.600 inch valves, straight plug design. Available new. (Est. cost: $800 - $1000 per pair)</li>
-                            <li>**Edelbrock E-Street Aluminum Heads (PN: 5089)** - 185cc intake, 64cc chambers, 2.02-inch intake valves, compatible with hydraulic camshafts less than .550-inch lift, requires hardened pushrods. Available new. (Est. cost: $900 - $1200 per pair)</li>
-                            <li>Alternatively, Motorsports Unlimited offers aluminum heads with 195cc or 205cc intake runners.</li>
+                            <li>Positioning the engine for proper alignment with the transmission.</li>
+                            <li>Securing engine mounts and bellhousing bolts.</li>
+                            <li>Connecting exhaust headers/manifolds.</li>
+                            <li>Installing accessories (power steering pump, alternator, A/C compressor if applicable).</li>
+                            <li>Connecting coolant hoses and filling the cooling system.</li>
+                            <li>Filling the engine with appropriate oil.</li>
+                            <li>Initial checks for fluid leaks and clearances.</li>
                         </ul>
-                        <p class="mt-2 text-sm">Crucial to match heads with camshaft choice for best performance and ensure proper cooling passages for long trips.</p>
+                        <p class="mt-2 text-sm">Follow BluePrint Engines' specific installation guidelines to ensure warranty compliance and optimal performance.</p>
                     </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Camshaft <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">ACES EFI Wild Card™ MPFI System Integration <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Optimize valve timing, duration, and lift for more power, while maintaining good street manners for drivability.</p>
-                        <p class="font-semibold mt-2">Options (New/Refurbished):</p>
+                        <p class="font-semibold">Goal:</p> <p>Integrate the multi-port fuel injection system, ensuring precise fuel delivery and advanced engine management.</p>
+                        <p class="font-semibold mt-2">Components & Steps:</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**COMP Cams Xtreme Energy Hydraulic Cam Kit** (General recommendation) - Available new. (Est. cost: $250 - $350 for cam kit)</li>
-                            <li>**COMP Cams Factory Muscle 195/202 Hydraulic Flat Cam (PN: 12-105-3)** - EFI friendly, 600-4800 RPM range; Intake Duration at .050 Inch Lift: 195; Exhaust Duration .050 Inch Lift: 202; Intake Valve Lift: 0.39; Exhaust Valve Lift: 0.41; Lobe Separation: 112. Available new. (Est. cost: $250 - $350 for cam kit)</li>
-                            <li>**Edelbrock Performer-Plus Camshaft Kit for Small Block Chevrolet (PN: 3702)** - Designed for performance, compatible with EFI systems with proper tuning. Available new. (Est. cost: $250 - $350 for cam kit)</li>
-                            <li>**Torque RV Ultimate Cam Kit compatible with Chevy GMC Truck 305 350** - Specifically marketed for trucks. Available new.</li>
+                            <li>**MPFI Intake Manifold:** Installation of the specific intake manifold designed for MPFI.</li>
+                            <li>**Fuel Rails & Injectors:** Mounting the fuel rails and installing the injectors into the manifold.</li>
+                            <li>**Wiring Harness:** Routing and connecting the comprehensive wiring harness for the ECM, injectors, sensors (MAP, TPS, IAT, O2), and ignition system.</li>
+                            <li>**ECM Mounting:** Securely mounting the ACES EFI Engine Control Module (ECM) in a suitable location, away from excessive heat and vibration.</li>
+                            <li>**Sensor Connections:** Connecting all necessary sensors for engine operation (e.g., coolant temp, oil pressure, crankshaft position, camshaft position if applicable).</li>
                         </ul>
-                        <p class="mt-2 text-sm">Select a cam compatible with your chosen EFI ECM and tuning capabilities. Aggressive cams require more sophisticated tuning, but a well-matched cam will ensure good vacuum and idle for long-distance cruising.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Rotating Assembly <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Reliable foundation. Stock crank/rods often reusable after machining for 300-325HP. Basic piston/ring package sufficient, but quality is key for reliability.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**Pistons & Rings:** Basic package, e.g., 0.030-over plasma moly rings from reputable brands like Sealed Power, Mahle, or Federal-Mogul. Available new. (Est. cost: $350 - $550 for piston and ring set)</li>
-                            <li>**Connecting Rods:** Stock rods reconditioned with new, high-strength ARP rod bolts. Available new or refurbished. (Est. cost for ARP bolts: $100 - $150)</li>
-                            <li>**Crankshaft:** Stock crank can be reused after cleaning, inspection, and professional machining (e.g., grinding and polishing of journals). If replacement is necessary, new cast or forged steel crankshafts are available. Available new or refurbished. (Cost for new cast crank: $300 - $500, if needed)</li>
-                        </ul>
-                        <p class="mt-2 text-sm">2-bolt main block generally adequate for 300-325HP. Forged components are typically for >400HP. Ensure all clearances are within factory specifications for longevity.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Valvetrain <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Durability, reduced friction, optimal valve control. Roller tip rockers recommended for reduced wear, crucial for long-term reliability.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**Lifters:** COMP Cams High Energy Hydraulic Lifters or equivalent. Available new. (Est. cost: $100 - $150)</li>
-                            <li>**Pushrods:** Hardened pushrods, especially with aftermarket heads/higher lift cams. Available new. (Est. cost: $80 - $120)</li>
-                            <li>**Roller Rocker Arms:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Steel Roller Tip Rocker Arms (e.g., 1.6 Ratio, 3/8" Stud for SBC 350). Available new. (Est. cost: $150 - $250)</li>
-                                    <li>Aluminum Roller Rocker Arms (e.g., Vortec 305 350 SBC Chevy Aluminum Roller Rockers 1.6 Ratio 3/8" Self Aligning). Available new. (Est. cost: $200 - $300)</li>
-                                    <li>Summit Racing Pro Series Stainless Rocker Arms (PN: SUM-G6990, 1.5 Ratio, 3/8" Stud, Full Roller). Available new.</li>
-                                    <li>Scorpion Racing Products (PN: SCP1036, 1.65 Ratio, Vortec Roller Rockers). Available new (or as "new other" with minor cosmetic imperfections).</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="mt-2 text-sm">Compatibility is KEY. Mismatched components (e.g., cam lift vs. spring capability, pushrod strength) lead to failure or poor performance. Quality components enhance reliability for extended use.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Oil Pump & Lubrication System <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Maintain consistent and adequate oil pressure to all engine components, especially under sustained high-load conditions during long trips.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**High-Volume Oil Pump:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Melling M-55HV or M-155HV (for small block Chevy) - Provides increased oil flow, beneficial for performance engines and those operating for extended periods. Available new. (Est. cost: $50 - $100)</li>
-                                    <li>Ensure proper oil pump drive shaft (e.g., ARP high-strength) is used with a high-volume pump. Available new. (Est. cost: $20 - $40)</li>
-                                </ul>
-                            </li>
-                            <li>**Oil Pan:** Ensure your oil pan has adequate capacity and baffling for consistent oil pickup during acceleration/braking. Stock pan is often sufficient for street use, but consider aftermarket if sustained high-RPM or cornering is anticipated.</li>
-                            <li>**Oil Cooler (Optional but Recommended for long trips):** An external oil cooler can significantly reduce oil temperatures during extended operation, preserving oil viscosity and extending engine life. (Est. cost: $150 - $300)</li>
-                        </ul>
-                        <p class="mt-2 text-sm">Proper lubrication is paramount for engine longevity, particularly when increasing horsepower and planning for long-distance reliability. Do not compromise on oil pump quality.</p>
+                        <p class="mt-2 text-sm">Precise wiring and sensor connections are crucial for the MPFI system's performance and reliability. Refer to ACES EFI's detailed instructions.</p>
                     </div>
                 </div>
             </div>
@@ -264,143 +176,15 @@
 
         <section id="phase3" class="content-section">
             <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 3: Fuel, Air, and Ignition System Upgrades (EFI/TBI Focus)</h2>
-            <p class="mb-6 text-lg">To feed and ignite the more powerful engine with precise control, upgrading to a modern Electronic Fuel Injection (EFI) Throttle Body Injection (TBI) system is critical. This involves a new TBI unit, a compatible intake manifold, and a robust ignition system. The exhaust system also needs to be addressed to let the engine breathe freely.</p>
+            <p class="mb-6 text-lg">Increased horsepower and torque from the 383 Stroker mean more heat and stress. Upgrading the cooling system is essential for thermal stability during sustained operation. The driveline (transmission, driveshaft, rear end) must also be reinforced to handle the extra power reliably. Crucially, the **electrical system** needs to support the increased demands of modern MPFI and electric fans.</p>
 
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Parts Costs for Phase 3</h3>
                 <ul class="list-disc list-inside space-y-1 text-lg">
-                    <li>**Minimum Estimated Cost:** ~$1,500</li>
-                    <li>**Mid-Range Estimated Cost:** ~$2,500</li>
-                </ul>
-                <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts. Note: Comprehensive EFI kits often bundle many of these components.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">EFI Throttle Body Injection (TBI) System <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Provide precise, self-learning fuel delivery and ignition control, replacing the carburetor or original TBI unit.</p>
-                        <p class="font-semibold mt-2">Options (New):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**ACES Killshot EFI System:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Features: 4-barrel TBI, supports up to 650 HP with four 100 lb/hr injectors, remote-mounted ECU (reduces heat/vibration issues), 5" or 7" touchscreen handheld, self-learning, integrated ignition control.</li>
-                                    <li>Pros: Cost-effective, remote ECU for durability, good performance for the price.</li>
-                                    <li>Cons: Interface might be less intuitive for some compared to competitors.</li>
-                                    <li>(Est. cost: $500 - $800 for TBI unit/ECU/Handheld; $1000 - $1500+ for fuel system master kits)</li>
-                                </ul>
-                            </li>
-                            <li>**Holley Sniper EFI System:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Features: Very popular 4-barrel TBI, self-tuning, integrated ECU (on throttle body, but Sniper 2 has improvements), extensive ecosystem.</li>
-                                    <li>Pros: User-friendly interface, strong community support, robust online resources.</li>
-                                    <li>Cons: Generally higher cost, ECU on throttle body can be a concern for some.</li>
-                                    <li>(Est. cost: $1000 - $1700+ for various kits)</li>
-                                </ul>
-                            </li>
-                            <li>**FiTech Go EFI System:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Features: Self-learning 4-barrel TBI, integrated ECU, various horsepower ratings.</li>
-                                    <li>Pros: Often more budget-friendly than Holley.</li>
-                                    <li>Cons: Mixed reviews on initial setup/drivability, interface can be less refined.</li>
-                                    <li>(Est. cost: $800 - $1200+)</li>
-                                </ul>
-                            </li>
-                            <li>**FAST EZ-EFI System:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Features: Self-tuning TBI, **remote-mounted ECU** (like ACES Killshot), easy setup wizard.</li>
-                                    <li>Pros: Remote ECU for durability, user-friendly.</li>
-                                    <li>Cons: May require external fuel pressure regulator.</li>
-                                    <li>(Est. cost: $900 - $1200+)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="mt-2 text-sm">These systems simplify the EFI conversion by mounting injectors in the throttle body, fitting traditional 4-barrel intake manifolds. They provide excellent drivability and adaptability for various conditions, essential for long trips.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Intake Manifold (EFI Compatible) <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Provide a suitable mounting surface for the 4-barrel TBI unit and optimize air distribution.</p>
-                        <p class="font-semibold mt-2">Options (New/Refurbished):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**Edelbrock Performer RPM Air-Gap Intake Manifold (PN: 7501 or 7516 for Vortec heads):** Excellent choice for street performance, providing good low-end torque and mid-range power. Its dual-plane, air-gap design helps keep the intake charge cool. Available new. (Est. cost: $300 - $450)</li>
-                            <li>**Weiand Stealth Intake Manifold:** Similar performance characteristics to the Edelbrock Performer RPM, often a good alternative.</li>
-                            <li>**Any 4150-flange 4-barrel intake manifold:** Most aftermarket performance intake manifolds designed for carburetors will accept a TBI unit. Ensure it matches your cylinder head port design (e.g., standard or Vortec).</li>
-                        </ul>
-                        <p class="mt-2 text-sm">The TBI unit replaces the carburetor on a standard 4-barrel intake. A dual-plane design is generally preferred for street drivability and torque.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Fuel Delivery System (High Pressure) <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Supply consistent high-pressure fuel to the TBI unit. Crucial for EFI reliability.</p>
-                        <p class="font-semibold mt-2">Components (New):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**High-Pressure Electric Fuel Pump:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>In-tank or external electric fuel pump capable of 40-60+ psi (e.g., Walbro 255 LPH, Aeromotive, Holley). Many EFI kits offer specific pumps. Available new. (Est. cost: $100 - $200)</li>
-                                </ul>
-                            </li>
-                            <li>**EFI-Specific Fuel Pressure Regulator:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Required to maintain consistent fuel pressure. Some TBI units have integrated regulators; others require an external adjustable unit (e.g., Aeromotive, Holley). Available new. (Est. cost: $80 - $180)</li>
-                                </ul>
-                            </li>
-                            <li>**Return Fuel Line:** Essential for proper EFI operation to prevent fuel heating and maintain stable pressure. Requires a return line back to the fuel tank.</li>
-                            <li>**Upgraded Fuel Lines:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>New fuel lines (e.g., 3/8" or larger feed, 5/16" or 3/8" return) capable of handling higher pressure. PTFE-lined braided stainless steel or high-pressure rubber hose with AN fittings are recommended for durability and safety on long trips. Available new. (Est. cost: $150 - $400 for lines and fittings)</li>
-                                </ul>
-                            </li>
-                            <li>**Fuel Filters:** Pre-filter (100 micron) before the pump and post-filter (10 micron) after the pump for injector protection. Available new. (Est. cost: $30 - $60)</li>
-                        </ul>
-                        <p class="mt-2 text-sm">A robust and correctly sized high-pressure fuel system is non-negotiable for reliable EFI operation, especially for extended periods. Do not reuse old carbureted fuel lines or pumps.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Ignition System (EFI Compatible) <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Strong, consistent spark, controlled by the EFI ECM for complete combustion and optimal timing.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**Distributor:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>EFI-compatible distributor (e.g., a "ready-to-run" HEI with mechanical/vacuum advance locked out, or a magnetic pickup/Hall effect distributor). Many EFI systems (like ACES and Holley) recommend their own compatible distributors for plug-and-play timing control. Available new. (Est. cost: $200 - $350)</li>
-                                </ul>
-                            </li>
-                            <li>**Ignition Coil:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>High-output coil (e.g., ACCEL, MSD) - compatible with your chosen EFI system. Available new. (Est. cost: $50 - $100)</li>
-                                </ul>
-                            </li>
-                            <li>**Spark Plug Wires:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Low-resistance, high-temperature wires (e.g., 8mm or 8.5mm performance wires). Available new. (Est. cost: $50 - $100)</li>
-                                </ul>
-                            </li>
-                            <li>**Spark Plugs:** Performance spark plugs matched to the engine's compression and ignition requirements. Available new. (Est. cost: $30 - $50 for 8)</li>
-                        </ul>
-                        <p class="mt-2 text-sm">The EFI ECM will precisely control ignition timing, which is crucial for maximizing power and efficiency, especially for a 300-325 HP target and long-trip reliability.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="phase4" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 4: Supporting Systems and Driveline Reinforcement</h2>
-            <p class="mb-6 text-lg">Increased horsepower means more heat and stress. Upgrading the cooling system is essential for thermal stability during sustained operation. The driveline (transmission, driveshaft, rear end) must also be reinforced to handle the extra power reliably. Crucially, the **electrical system** needs to support the increased demands of modern EFI and electric fans.</p>
-
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Parts Costs for Phase 4</h3>
-                <ul class="list-disc list-inside space-y-1 text-lg">
                     <li>**Minimum Estimated Cost:** ~$2,065</li>
                     <li>**Mid-Range Estimated Cost:** ~$3,100</li>
                 </ul>
-                <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts, avoiding high-end components.</p>
+                <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts, avoiding high-end components, but will need review with the new HP target.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
@@ -423,42 +207,42 @@
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Alternator Upgrade <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Provide sufficient electrical power for the new EFI system, electric cooling fans, and other accessories, preventing voltage drops and ensuring reliable operation.</p>
+                        <p class="font-semibold">Goal:</p> <p>Provide sufficient electrical power for the new MPFI system, electric cooling fans, and other accessories, preventing voltage drops and ensuring reliable operation.</p>
                         <p class="font-semibold mt-2">Components (New/Refurbished):</p>
                         <ul class="list-disc list-inside space-y-1">
                             <li>**High-Output Alternator:**
                                 <ul class="list-disc list-inside ml-4">
-                                    <li>Upgrade from stock (typically 60-80 amp) to a 100-140+ amp alternator. Modern EFI systems and powerful electric fans draw significant current. Brands like Powermaster, ACDelco (high-output reman), or aftermarket high-amp units. Available new or quality refurbished. (Est. cost: $150 - $300)</li>
+                                    <li>Upgrade from stock (typically 60-80 amp) to a 100-140+ amp alternator. Modern MPFI systems and powerful electric fans draw significant current. Brands like Powermaster, ACDelco (high-output reman), or aftermarket high-amp units. Available new or quality refurbished. (Est. cost: $150 - $300)</li>
                                 </ul>
                             </li>
                             <li>**Heavy-Duty Wiring:** Consider upgrading the main power wire from the alternator to the battery/fuse box to a larger gauge (e.g., 4-gauge or 2-gauge) to handle the increased current safely.</li>
                         </ul>
-                        <p class="mt-2 text-sm">An under-sized alternator can lead to low voltage, affecting EFI performance, charging issues, and potential damage to electrical components. Essential for long-trip reliability.</p>
+                        <p class="mt-2 text-sm">An under-sized alternator can lead to low voltage, affecting MPFI performance, charging issues, and potential damage to electrical components. Essential for long-trip reliability.</p>
                     </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2">
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Driveline Upgrades <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Reliably transfer 300-325 HP to the wheels and prevent component failure under increased stress.</p>
+                        <p class="font-semibold">Goal:</p> <p>Reliably transfer 420+ HP to the wheels and prevent component failure under increased stress.</p>
                         <p class="font-semibold mt-2">Components (New/Refurbished):</p>
                         <ul class="list-disc list-inside space-y-1">
                             <li>**Transmission (700R4):**
                                 <ul class="list-disc list-inside ml-4">
-                                    <li>Performance rebuild kit (e.g., Stage 2 or 3 for 300-325 HP). Focus on stronger clutches, bands, and a good shift kit for firm, reliable shifts. Available new or refurbished. (Est. cost: $400 - $800 for kit; $1000 - $2000+ for professional rebuild)</li>
+                                    <li>Performance rebuild kit (e.g., Stage 2 or 3 for 400+ HP). Focus on stronger clutches, bands, and a good shift kit for firm, reliable shifts. Available new or refurbished. (Est. cost: $400 - $800 for kit; $1000 - $2000+ for professional rebuild)</li>
                                     <li>Alto Red Eagle High Performance Clutch Kit. Available new or refurbished.</li>
                                     <li>Corvette Servo Piston Assembly (common upgrade for firmer 1-2 and 2-3 shifts). Available new or refurbished.</li>
                                 </ul>
                             </li>
                             <li>**Driveshaft:**
                                 <ul class="list-disc list-inside ml-4">
-                                    <li>For 300-325 HP, a well-maintained stock driveshaft with new, quality U-joints might suffice for street use. However, a balanced, heavy-duty steel or aluminum driveshaft is a recommended upgrade for longevity and to prevent vibrations at highway speeds. Available new. (Est. cost: $300 - $800)</li>
+                                    <li>A balanced, heavy-duty steel or aluminum driveshaft is a recommended upgrade for longevity and to prevent vibrations at highway speeds with the higher horsepower. Available new. (Est. cost: $300 - $800)</li>
                                     <li>Heavy Duty Chromoly Slip Yoke (if not part of a full driveshaft upgrade). Available new.</li>
                                 </ul>
                             </li>
                             <li>**Rear End (GM 10-bolt):**
                                 <ul class="list-disc list-inside ml-4">
-                                    <li>For 300-325 HP, the stock 10-bolt can hold up if in good condition and not abused. However, upgrading to a **Limited-Slip Differential (LSD) / Posi Unit** (e.g., Eaton Posi, Yukon Dura Grip) is highly recommended for improved traction and more balanced power delivery, especially for a truck. Available new. (Est. cost: $300 - $600 for unit)</li>
+                                    <li>Upgrading to a **Limited-Slip Differential (LSD) / Posi Unit** (e.g., Eaton Posi, Yukon Dura Grip) is highly recommended for improved traction and more balanced power delivery, especially for a truck with significantly increased power. Available new. (Est. cost: $300 - $600 for unit)</li>
                                     <li>Consider new bearings and seals (Master Install Kit) during any differential work. Available new. (Est. cost: $150 - $250)</li>
                                     <li>High-Performance Gear Set: If changing gear ratios for better acceleration or highway cruising, ensure quality gears (e.g., Richmond, Motive Gear). (Est. cost: $150 - $300)</li>
                                 </ul>
@@ -471,45 +255,44 @@
         </section>
 
         <section id="phase5" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 5: Tuning for Peak Performance (EFI System)</h2>
-            <p class="mb-6 text-lg">Tuning is essential to make all the new EFI components work together optimally and safely, especially for the 300-325 HP target and long-trip reliability. This phase focuses on calibrating the new engine management system.</p>
+            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 4: Initial Startup & Advanced MPFI Tuning</h2>
+            <p class="mb-6 text-lg">Tuning is paramount to unlock the full potential of the 383 Stroker with the ACES EFI MPFI system and ensure safe, efficient, and reliable operation across its entire range, especially for long-trip reliability. This phase includes initial system checks, engine break-in procedures (as recommended by BluePrint Engines), and detailed calibration of the ACES EFI engine management system.</p>
 
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Costs for Phase 5</h3>
+                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Costs for Phase 4</h3>
                 <ul class="list-disc list-inside space-y-1 text-lg">
-                    <li>**Minimum Estimated Cost:** ~$150 (for Wideband O2, if not included in EFI kit)</li>
-                    <li>**Mid-Range Estimated Cost:** ~$500 (for Wideband O2 + basic tuning tools/software)</li>
-                    <li>**Professional Dyno Tuning (Labor):** $500 - $1000+ (highly recommended for optimal results)</li>
+                    <li>**Required Tools/Sensors (e.g., Wideband O2 Sensor):** ~$150 - $500 (Potentially included with ACES EFI kit)</li>
+                    <li>**Professional Dyno Tuning (Labor):** $750 - $1500+ (Highly recommended for optimal results and long-term reliability with the higher HP)</li>
                 </ul>
                 <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts. Custom tuning labor costs are significant but yield the best results.</p>
             </div>
 
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">EFI System Fundamentals (TBI) <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">MPFI System Fundamentals (ACES EFI Wild Card™) <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p>Modern TBI EFI systems offer superior fuel atomization, precise fuel control, and self-learning capabilities. They adapt to changes in altitude, temperature, and engine load, leading to better cold starts, improved drivability, enhanced fuel economy, and higher ultimate power potential compared to carburetors. For long trips, this adaptability is crucial for consistent performance and efficiency.</p>
-                        <p class="font-semibold mt-2">Benefits:</p> Excellent drivability, improved cold starts, better fuel economy, adaptability to conditions, and good power potential.
-                        <p class="font-semibold mt-2">Drawbacks:</p> Initial setup can be complex for first-timers, requires a high-pressure fuel system, and optimal performance often benefits from professional tuning.
+                        <p>The ACES EFI Wild Card™ MPFI system offers superior fuel atomization, precise fuel control via individual injectors per cylinder, and advanced self-learning capabilities. This leads to better cold starts, improved drivability, enhanced fuel economy, and higher ultimate power potential compared to TBI or carburetors. For long trips, this adaptability and precision are crucial for consistent performance and efficiency.</p>
+                        <p class="font-semibold mt-2">Benefits:</p> Excellent drivability, improved cold starts, better fuel economy, adaptability to conditions, and high power potential.
+                        <p class="font-semibold mt-2">Drawbacks:</p> Initial setup can be more complex than TBI, requires a high-pressure fuel system, and optimal performance greatly benefits from professional tuning.
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">ECM Tuning Options (EFI) <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">ECM Tuning Options (MPFI) <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
                         <p class="font-semibold mt-2">Options:</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**Self-Learning (Initial Setup):** Most TBI EFI systems feature a calibration wizard for initial setup and then "self-learn" as you drive. This gets the engine running well for most street applications.</li>
+                            <li>**Self-Learning (Initial Setup):** The ACES EFI Wild Card™ system features self-learning capabilities for initial setup, allowing the engine to run well for most street applications.</li>
                             <li>**Handheld Tuner Adjustments:** The included handheld display allows for monitoring various parameters and making basic adjustments to fuel, timing, and idle settings.</li>
-                            <li>**Laptop Software Tuning:** For maximizing the 300-325 HP target, optimizing drivability, and handling specific engine characteristics (e.g., aggressive camshafts, power adders), laptop-based tuning software (provided by the EFI manufacturer) is highly recommended. This allows for fine-tuning fuel maps, ignition tables, idle control, and other advanced parameters.</li>
-                            <li>**Professional Dyno Tuning:** For the absolute best performance, efficiency, and reliability, especially for long trips, a professional dyno tune is invaluable. A skilled tuner can optimize the EFI system for your specific engine combination and driving conditions, ensuring maximum safe power and optimal drivability. (Est. labor cost: $500 - $1000+)</li>
+                            <li>**Laptop Software Tuning:** For maximizing the 420+ HP target, optimizing drivability, and handling specific engine characteristics (e.g., aggressive camshafts, specific vehicle weight), laptop-based tuning software (provided by ACES EFI) is highly recommended. This allows for fine-tuning fuel maps, ignition tables, idle control, and other advanced parameters.</li>
+                            <li>**Professional Dyno Tuning:** For the absolute best performance, efficiency, and reliability, especially for long trips and a high-performance crate engine, a professional dyno tune is invaluable. A skilled tuner can optimize the MPFI system for your specific engine combination and driving conditions, ensuring maximum safe power and optimal drivability. (Est. labor cost: $750 - $1500+)</li>
                         </ul>
-                        <p class="mt-2 text-sm">A proper EFI ECM and tuning strategy are vital for safety, efficiency, reliability, and achieving 300-325 HP with optimal drivability across all conditions, including extended highway cruising.</p>
+                        <p class="mt-2 text-sm">A proper MPFI ECM and tuning strategy are vital for safety, efficiency, reliability, and achieving 420+ HP with optimal drivability across all conditions, including extended highway cruising.</p>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Monitoring: Wideband O2 Sensor <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p>Indispensable for accurate tuning and real-time monitoring of your engine's health. A wideband O2 sensor provides precise Air-Fuel Ratio (AFR) data across a broad range, which is critical for ensuring the engine is not running too rich (wasting fuel, fouling plugs) or too lean (causing engine damage). Many EFI systems include one, but if not, a standalone unit is a must-have.</p>
+                        <p>Indispensable for accurate tuning and real-time monitoring of your engine's health. A wideband O2 sensor provides precise Air-Fuel Ratio (AFR) data across a broad range, which is critical for ensuring the engine is not running too rich (wasting fuel, fouling plugs) or too lean (causing engine damage). The ACES EFI Wild Card™ system typically includes one, but if not, a standalone unit is a must-have.</p>
                         <p class="font-semibold mt-2">Popular option:</p> **AEM UEGO Wideband O2 Air Fuel Ratio Gauge (PN: AEM 30-4110)**. Available new. (Est. cost: $150 - $250)
                     </div>
                 </div>
@@ -520,6 +303,13 @@
             <h2 class="text-3xl font-bold text-sky-700 mb-6">Overall Project Progress Tracker</h2>
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <p class="mb-4">Track the progress of various tasks across your GMC Sierra project, from engine work to exterior and interior improvements. Manage your budget and monitor spending.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+                <h3 class="text-2xl font-semibold text-slate-800 mb-4">Estimated Project Phase Costs</h3>
+                <div class="chart-container mb-8">
+                    <canvas id="projectPhaseCostsChart"></canvas>
+                </div>
             </div>
 
             <div id="tasks-container" class="bg-white p-6 rounded-lg shadow-lg mb-8">
@@ -534,7 +324,7 @@
                 <div class="flex flex-col md:flex-row md:items-center md:space-x-4 mb-4">
                     <div class="mb-2 md:mb-0">
                         <label for="budget" class="block text-sm font-medium text-slate-700">Total Project Budget ($):</label>
-                        <input type="number" id="budget" class="mt-1 block w-full md:w-48 rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2" placeholder="e.g., 8000">
+                        <input type="number" id="budget" class="mt-1 block w-full md:w-48 rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2" placeholder="e.g., 12000">
                     </div>
                     <div class="mb-2 md:mb-0">
                         <label for="actual-cost" class="block text-sm font-medium text-slate-700">Actual Cost Spent ($):</label>
@@ -556,11 +346,11 @@
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Engine Rebuild Tasks (Manual Status - Consider moving to DB)</h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Engine Swap & MPFI Conversion Tasks (Manual Status - Consider moving to DB)</h3>
                     <p class="mb-4 text-sm text-slate-600">Refer to the detailed sections above for specific part numbers and costs.</p>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
-                            <span>Phase 1: Disassembly & Machining:</span>
+                            <span>Phase 1: Original Engine Removal & Prep:</span>
                             <select id="engine-phase1-status" class="p-1 border rounded-md">
                                 <option value="not-started">Not Started</option>
                                 <option value="in-progress">In Progress</option>
@@ -569,7 +359,7 @@
                             </select>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span>Phase 2: Core Components:</span>
+                            <span>Phase 2: Crate Engine & MPFI Installation:</span>
                             <select id="engine-phase2-status" class="p-1 border rounded-md">
                                 <option value="not-started">Not Started</option>
                                 <option value="in-progress">In Progress</option>
@@ -578,7 +368,7 @@
                             </select>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span>Phase 3: Fuel, Air, Ignition, Exhaust:</span>
+                            <span>Phase 3: Supporting Systems & Driveline:</span>
                             <select id="engine-phase3-status" class="p-1 border rounded-md">
                                 <option value="not-started">Not Started</option>
                                 <option value="in-progress">In Progress</option>
@@ -587,17 +377,8 @@
                             </select>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span>Phase 4: Supporting Systems & Driveline:</span>
+                            <span>Phase 4: Initial Startup & Advanced MPFI Tuning:</span>
                             <select id="engine-phase4-status" class="p-1 border rounded-md">
-                                <option value="not-started">Not Started</option>
-                                <option value="in-progress">In Progress</option>
-                                <option value="completed">Completed</option>
-                                <option value="on-hold">On Hold</option>
-                            </select>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span>Phase 5: Tuning:</span>
-                            <select id="engine-phase5-status" class="p-1 border rounded-md">
                                 <option value="not-started">Not Started</option>
                                 <option value="in-progress">In Progress</option>
                                 <option value="completed">Completed</option>
@@ -664,17 +445,18 @@
         <section id="project-framework" class="content-section">
             <h2 class="text-3xl font-bold text-sky-700 mb-6">Project Plan Framework (Excel Outline)</h2>
             <div class="bg-white p-6 rounded-lg shadow-lg">
-                <p class="mb-4">A structured project plan is key. The report suggests an Excel plan with the following stages and columns to track progress, costs, and materials systematically.</p>
+                <p class="mb-4">A structured project plan is key. This framework suggests an Excel plan with the following stages and columns to track progress, costs, and materials systematically for the new build direction.</p>
                 <h4 class="text-xl font-semibold text-slate-800 mb-2">Key Project Stages:</h4>
                 <ol class="list-decimal list-inside space-y-1 mb-4">
-                    <li>Planning & Sourcing</li>
-                    <li>Engine Disassembly & Inspection</li>
-                    <li>Machining</li>
-                    <li>Core Engine Component Assembly (Bottom End)</li>
-                    <li>Core Engine Component Assembly (Top End)</li>
-                    <li>External Component Installation (EFI specific)</li>
-                    <li>Engine Installation & Initial Startup</li>
-                    <li>Break-in & Tuning (EFI specific)</li>
+                    <li>Planning & Sourcing (Engine, MPFI, Supporting Components)</li>
+                    <li>Original Engine Removal</li>
+                    <li>Engine Bay & Chassis Preparation</li>
+                    <li>Crate Engine Installation</li>
+                    <li>MPFI System Installation & Integration</li>
+                    <li>Fuel & Ignition System Setup</li>
+                    <li>Supporting Systems Upgrades (Cooling, Electrical, Driveline)</li>
+                    <li>Initial Startup & Break-in</li>
+                    <li>Advanced MPFI Tuning (Dyno)</li>
                     <li>Drivetrain Upgrades (Concurrent/Post-Engine)</li>
                 </ol>
                 <h4 class="text-xl font-semibold text-slate-800 mb-2">Suggested Excel Columns:</h4>
@@ -696,41 +478,48 @@
 
         <section id="conclusion" class="content-section pb-16">
             <div class="bg-white p-8 rounded-lg shadow-xl">
-                <h2 class="text-3xl font-bold text-sky-700 mb-6">Realizing Your 300-325 HP Goal with EFI for Reliability</h2>
-                <p class="text-lg mb-4">Achieving 300-325 horsepower from a 1990 GMC Sierra's 350 engine with a modern EFI (TBI) conversion is an ambitious and highly rewarding goal. This guide outlines a strategic combination of key upgrades, including high-flow cylinder heads, a performance-oriented camshaft, optimized intake and exhaust systems, and a robust TBI EFI fuel and ignition setup. Each component selection is aimed at maximizing the engine's volumetric efficiency and ensuring reliable power delivery.</p>
-                <p class="mb-4">The report emphasizes that precise EFI ECM tuning is paramount to unlock the full potential of these upgrades, ensuring that the engine operates safely and efficiently across its entire range. Crucially, the focus on robust supporting systems—**cooling, oil pump, alternator, and driveline**—will ensure the vehicle's exceptional driveability and reliability for extended periods, making those 6-7 hour trips worry-free. The expected gains extend beyond raw horsepower and torque figures, encompassing improved throttle response, enhanced drivability, and a significantly more engaging driving experience. Patience, diligent research, and a steadfast commitment to quality in every phase of the project will culminate in a powerful, reliable, and highly satisfying 300-325 horsepower EFI 350 engine for the GMC Sierra.</p>
+                <h2 class="text-3xl font-bold text-sky-700 mb-6">Realizing Your 420+ HP Goal with MPFI for Reliability</h2>
+                <p class="text-lg mb-4">Achieving 420+ horsepower from a 1990 GMC Sierra with a **BluePrint Engines 383 Stroker crate engine** and an **ACES EFI Wild Card™ MPFI conversion** is an ambitious and highly rewarding goal. This guide outlines a strategic approach focusing on the installation and integration of these high-performance components. The emphasis is on maximizing the engine's output while ensuring reliable power delivery.</p>
+                <p class="mb-4">The report emphasizes that precise **MPFI ECM tuning** is paramount to unlock the full potential of these upgrades, ensuring that the engine operates safely and efficiently across its entire range. Crucially, the focus on robust supporting systems—**cooling, oil pump, alternator, and driveline**—will ensure the vehicle's exceptional driveability and reliability for extended periods, making those 6-7 hour trips worry-free. The expected gains extend beyond raw horsepower and torque figures, encompassing improved throttle response, enhanced drivability, and a significantly more engaging driving experience. Patience, diligent research, and a steadfast commitment to quality in every phase of the project will culminate in a powerful, reliable, and highly satisfying 420+ horsepower MPFI 383 Stroker engine for the GMC Sierra.</p>
             </div>
         </section>
 
     </main>
 
     <footer class="bg-slate-800 text-white text-center p-6 mt-12">
-        <p>&copy; Interactive Guide based on the 350 EFI Rebuild Report.</p>
+        <p>&copy; Interactive Guide based on the GMC Sierra Engine Swap Report.</p>
     </footer>
 
     <script>
-        const machiningData = {
-            labels: ['Hot Tank', 'Magnaflux', 'Bore & Hone', 'Deck Block', 'Line Bore', 'Grind Crank', 'Balance Assy', 'Recon Rods (x8)', 'Rebush Rods (x8)', 'Valve Grind', 'Surface Heads (x2)', 'Install Valve Guides', 'Pressure Test Heads', 'Assembly Labor'],
-            minCosts: [60, 60, 325, 200, 400, 250, 375, 200, 280, 450, 130, 75, 80, 650],
-            maxCosts: [75, 75, 350, 220, 400, 350, 400, 440, 280, 550, 170, 100, 80, 800]
+        // NEW CHART DATA AND INITIALIZATION FOR PROJECT PHASES
+        const projectPhaseCostsData = {
+            labels: [
+                'Engine Removal & Prep',
+                'Crate Engine & MPFI Install',
+                'Supporting Systems & Driveline',
+                'Initial Startup & MPFI Tuning'
+            ],
+            // Example placeholder costs for the new phases - adjust these as needed!
+            minCosts: [100, 7500, 2065, 900], 
+            maxCosts: [200, 10500, 3100, 2000]
         };
 
-        const machiningCostsChartCtx = document.getElementById('machiningCostsChart').getContext('2d');
-        new Chart(machiningCostsChartCtx, {
+        const projectPhaseCostsChartCtx = document.getElementById('projectPhaseCostsChart').getContext('2d');
+        new Chart(projectPhaseCostsChartCtx, {
             type: 'bar',
             data: {
-                labels: machiningData.labels,
+                labels: projectPhaseCostsData.labels,
                 datasets: [
                     {
                         label: 'Min Estimated Cost (USD)',
-                        data: machiningData.minCosts,
+                        data: projectPhaseCostsData.minCosts,
                         backgroundColor: 'rgba(59, 130, 246, 0.6)', // sky-500
                         borderColor: 'rgba(59, 130, 246, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Max Estimated Cost (USD)',
-                        data: machiningData.maxCosts,
+                        data: projectPhaseCostsData.maxCosts,
                         backgroundColor: 'rgba(14, 165, 233, 0.6)', // cyan-500
                         borderColor: 'rgba(14, 165, 233, 1)',
                         borderWidth: 1
@@ -755,7 +544,7 @@
                             minRotation: 30,
                             callback: function(value, index, values) {
                                 const label = this.getLabelForValue(value);
-                                return label.length > 15 ? label.substring(0,15) + '...' : label;
+                                return label.length > 20 ? label.substring(0,20) + '...' : label; // Adjust for longer labels
                             }
                         }
                     }
@@ -817,8 +606,7 @@
 
         function updateBudgetInfo() {
             const budget = parseFloat(budgetInput.value) || 0;
-            const actualCost = parseFloat(actualCostInput.value) || 0; // This line reads from the input field
-            console.log('Inside updateBudgetInfo - budget:', budget, 'actualCost (read from input):', actualCost); // Debug log
+            const actualCost = parseFloat(actualCostInput.value) || 0; 
             const remaining = budget - actualCost;
             remainingBudgetDisplay.textContent = remaining.toFixed(2);
 
@@ -840,10 +628,6 @@
             }
         }
 
-        // budgetInput.addEventListener('input', updateBudgetInfo); // Keep this for manual budget input
-        // actualCostInput.addEventListener('input', updateBudgetInfo); // This listener is no longer needed as actualCost will be set programmatically
-
-        // --- New: Function to fetch total cost from backend ---
         async function fetchTotalCost() {
             try {
                 const response = await fetch('/api/total_cost');
@@ -851,18 +635,13 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                console.log('Fetched total_cost from backend:', data.total_cost); // Debug log
-                actualCostInput.value = data.total_cost.toFixed(2); // Update the input field
-                console.log('actualCostInput.value after update:', actualCostInput.value); // Debug log
-                updateBudgetInfo(); // Recalculate and update the progress bar
+                actualCostInput.value = data.total_cost.toFixed(2); 
+                updateBudgetInfo(); 
             } catch (error) {
                 console.error('Failed to fetch total cost:', error);
-                // Optionally display an error message
             }
         }
 
-
-        // --- JavaScript for fetching and displaying tasks from Flask with update functionality ---
         async function fetchAndDisplayTasks() {
             try {
                 const response = await fetch('/api/tasks');
@@ -881,7 +660,7 @@
                 tasks.forEach(task => {
                     const li = document.createElement('li');
                     li.className = 'bg-white shadow rounded-md p-4 mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between';
-                    li.setAttribute('data-task-id', task.id); // Store task ID on the element
+                    li.setAttribute('data-task-id', task.id); 
 
                     const taskDescription = document.createElement('strong');
                     taskDescription.className = 'font-semibold text-lg mb-2 sm:mb-0 sm:w-1/3';
@@ -931,7 +710,6 @@
             }
         }
 
-        // --- Function to send update to Flask backend ---
         async function updateTask(taskId, newStatus, newCost) {
             try {
                 const response = await fetch(`/api/tasks/${taskId}`, {
@@ -939,7 +717,7 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ status: newStatus, cost: parseFloat(newCost) || 0 }), // Send cost as a number
+                    body: JSON.stringify({ status: newStatus, cost: parseFloat(newCost) || 0 }), 
                 });
 
                 if (!response.ok) {
@@ -949,23 +727,24 @@
 
                 const result = await response.json();
                 console.log(result.message);
-                // Re-fetch and display tasks to show the updated state
-                await fetchAndDisplayTasks(); // Await this to ensure tasks are re-rendered
-                await fetchTotalCost(); // Now fetch the new total cost after task update
+                await fetchAndDisplayTasks(); 
+                await fetchTotalCost(); 
             } catch (error) {
                 console.error('Failed to update task:', error);
-                // Optionally, show a user-friendly error message on the page
                 alert('Failed to update task. Check console for details.');
             }
         }
 
-
         // Initial calls when the page loads
-        budgetInput.addEventListener('input', updateBudgetInfo); // Keep this listener for manual budget input
-        fetchTotalCost(); // Fetch total cost from DB on load
-        fetchAndDisplayTasks(); // For the tasks from the database
+        if (budgetInput) { 
+            budgetInput.addEventListener('input', updateBudgetInfo); 
+        } else {
+            console.warn("Budget input element not found.");
+        }
+        
+        fetchTotalCost(); 
+        fetchAndDisplayTasks(); 
 
     </script>
-
 </body>
 </html>
