@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1990 GMC Sierra 383 Stroker MPFI Swap - Interactive Guide</title>
+    <title>1990 GMC Sierra 383 Cruiser Pro-Flo 4 EFI - Interactive Guide</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -40,7 +40,6 @@
         html {
             scroll-behavior: smooth;
         }
-        /* Custom scrollbar for better aesthetics - optional */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -61,20 +60,20 @@
 
     <nav class="bg-slate-800 text-white p-4 fixed w-full top-0 z-50 shadow-lg">
         <div class="container mx-auto flex flex-wrap justify-between items-center">
-            <h1 class="text-xl font-bold">383 Stroker MPFI Swap Guide</h1>
+            <h1 class="text-xl font-bold">383 Cruiser Pro-Flo 4 EFI Guide</h1>
             <button id="navToggle" class="md:hidden block text-white focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
             <div id="navMenu" class="w-full md:flex md:items-center md:w-auto hidden">
                 <ul class="md:flex md:space-x-4 space-y-2 md:space-y-0 pt-4 md:pt-0">
                     <li><a href="#introduction" class="hover:text-sky-300">Introduction</a></li>
-                    <li><a href="#phase1" class="hover:text-sky-300">Phase 1: Engine Removal & Prep</a></li>
-                    <li><a href="#phase2" class="hover:text-sky-300">Phase 2: Engine & MPFI Install</a></li>
-                    <li><a href="#phase3" class="hover:text-sky-300">Phase 3: Systems Upgrades</a></li>
-                    <li><a href="#phase4" class="hover:text-sky-300">Phase 4: Supporting Systems</a></li>
-                    <li><a href="#phase5" class="hover:text-sky-300">Phase 5: Tuning</a></li>
+                    <li><a href="#phase1" class="hover:text-sky-300">Phase 1: Engine Removal</a></li>
+                    <li><a href="#phase2" class="hover:text-sky-300">Phase 2: Install</a></li>
+                    <li><a href="#phase3" class="hover:text-sky-300">Phase 3: Driveline</a></li>
+                    <li><a href="#phase4" class="hover:text-sky-300">Phase 4: Tuning</a></li>
                     <li><a href="#project-tracker" class="hover:text-sky-300">Project Tracker</a></li>
-                    <li><a href="#project-framework" class="hover:text-sky-300">Project Framework</a></li>
+                    <li><a href="#project-framework" class="hover:text-sky-300">Framework</a></li>
+                    <li><a href="/diagrams" class="hover:text-sky-300 text-sky-400 font-semibold">Wiring Diagrams</a></li>
                 </ul>
             </div>
         </div>
@@ -84,15 +83,12 @@
 
         <section id="introduction" class="content-section min-h-screen flex flex-col justify-center">
             <div class="bg-white p-8 rounded-lg shadow-xl">
-                <h2 class="text-4xl font-bold text-sky-700 mb-6">Project Plan: 1990 GMC Sierra 383 Stroker Engine Swap & MPFI Conversion (Targeting 420+ HP)</h2>
-                <p class="text-lg mb-4">This project outlines the plan for fundamentally upgrading a 1990 GMC Sierra by **replacing its original 350 engine with a new <a href="https://blueprintengines.com/products/efi-vortec-383ci-stroker-crate-engine-small-block-gm" target="_blank" class="text-sky-600 hover:underline">BluePrint Engines 383 cubic inch (6.3L) Stroker Crate Engine</a>**. This powerful engine comes with Vortec-style heads and is EFI-ready. The fuel delivery system will be upgraded to a **Multi-Port Fuel Injection (MPFI) system from <a href="https://acesefi.com/products/wild-card%E2%84%A2-efi?variant=41248171098318" target="_blank" class="text-sky-600 hover:underline">ACES EFI (Wild Card™)</a>**, aiming for an estimated output of **420+ horsepower and 450+ lb-ft of torque**.</p>
-                <p class="text-lg mb-4">The plan details the strategic installation of the crate engine, integration of the advanced MPFI system, and comprehensive reinforcement of supporting vehicle systems. A core principle of this project is to achieve significantly enhanced performance while maintaining the integrity, longevity, and **exceptional reliability for long-distance trips (6-7 hours)**.</p>
-                <p class="text-lg mb-4">This upgrade will provide a substantial increase in horsepower and torque, improved throttle response, and an overall enhanced driving experience, making the vehicle significantly more capable for various street and touring applications. Financial considerations are addressed by detailing component costs; however, the shift to a crate engine and MPFI system significantly alters the budget from a traditional rebuild. This report provides detailed cost estimates for individual components where available, facilitating accurate project budgeting and planning.</p>
-                <h3 class="text-2xl font-bold text-sky-700 mb-4">Introduction: The 420+ HP MPFI 383 Stroker Vision for Reliability</h3>
-                <h4 class="text-xl font-semibold text-slate-800 mb-2">Understanding the 1990 GMC Sierra's New 383 Engine and MPFI Upgrade</h4>
-                <p class="mb-4">The 1990 GMC Sierra's original 350 cubic inch (5.7L) engine is being replaced by a more powerful and modern **BluePrint Engines 383ci Stroker Crate Engine**. This engine provides a robust foundation for high-performance applications. By utilizing a cutting-edge **ACES EFI Wild Card™ Multi-Port Fuel Injection (MPFI) system**, we aim for superior fuel atomization, more precise fuel control, and advanced self-learning capabilities. This combination ensures better cold starts, improved drivability, enhanced fuel economy, and significantly higher ultimate power potential compared to the original TBI or a carburetor. The inherent durability of the 383 stroker and the precision of MPFI are critical for achieving the high horsepower target and ensuring **reliable, stress-free operation during long trips**.</p>
-                <h4 class="xl font-semibold text-slate-800 mb-2">Report Structure and Project Plan Philosophy</h4>
-                <p class="mb-4">This report is meticulously structured to guide the user through a methodical and successful engine swap and MPFI conversion. It progresses logically from the initial assessment and component preparation to the detailed installation of the crate engine and MPFI system, culminating in critical tuning procedures. The underlying philosophy emphasizes a holistic approach, ensuring that all interconnected vehicle systems are appropriately upgraded and reinforced to reliably support the increased power output and ensure **exceptional reliability for long-distance driving**. This comprehensive perspective prevents the creation of new weak points in the vehicle's powertrain. A strict adherence to using only new or factory-refurbished components is maintained throughout the report, guaranteeing reliability and longevity for the upgraded engine and its supporting systems, thereby maximizing the return on investment for the performance enhancement.</p>
+                <h2 class="text-4xl font-bold text-sky-700 mb-6">Project Plan: 1990 GMC Sierra 383 Cruiser Engine Swap & Pro-Flo 4 EFI</h2>
+                <p class="text-lg mb-4">This project outlines the plan for fundamentally upgrading a 1990 GMC Sierra by replacing its original 350 engine with a new <a href="https://smedingperformance.com/collections/383-small-block-chevys/products/383-cruiser-380hp?variant=11963682521124" target="_blank" class="text-sky-600 hover:underline">Smeding Performance 380HP 383 Cruiser Crate Engine</a>. This powerful engine is engineered specifically for excellent road manners and massive low-end torque. The fuel delivery system is the <a href="https://www.edelbrock.com/pro-flo-4-efi-system-for-1986-earlier-small-block-chevy-engines-35760.html" target="_blank" class="text-sky-600 hover:underline">Edelbrock Pro-Flo 4 EFI System #35760</a>, pre-installed and pre-tuned by Smeding Performance, targeting an output of <strong>380 horsepower and 450+ lb-ft of torque</strong>.</p>
+                <p class="text-lg mb-4">The plan details the strategic installation of the crate engine, integration of the Edelbrock Pro-Flo 4 EFI system, an upgraded 4L80E electronic transmission, and comprehensive reinforcement of supporting vehicle systems. A core principle of this project is to achieve significantly enhanced performance with a smooth, stock-like idle while maintaining the integrity, longevity, and <strong>exceptional reliability for long-distance cruising (6-7 hours)</strong>.</p>
+                <h3 class="text-2xl font-bold text-sky-700 mb-4">Introduction: The 380HP Cruiser Pro-Flo 4 EFI Vision for Reliability</h3>
+                <h4 class="text-xl font-semibold text-slate-800 mb-2">Understanding the 1990 GMC Sierra's New 383 Engine and Pro-Flo 4 EFI Upgrade</h4>
+                <p class="mb-4">By utilizing the Edelbrock Pro-Flo 4 EFI system alongside the Smeding Cruiser engine — pre-installed and baselined on Smeding's dyno — we ensure superior fuel atomization, perfect cold starts, and advanced self-learning capabilities via Bluetooth. The Pro-Flo 4's 29 lb/hr sequential injectors and self-learning ECU continuously refine fuel delivery to match real-world conditions. This combination guarantees flawless drivability in traffic and smooth power delivery on the highway. We are trading peak, high-RPM race horsepower for immense, accessible torque—ensuring stress-free operation during long road trips.</p>
                 <p class="text-sm text-slate-600">Navigate through the sections using the top bar to explore each phase of the project.</p>
             </div>
         </section>
@@ -101,199 +97,129 @@
             <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 1: Original Engine Removal & Prep for Crate Engine</h2>
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <h3 class="text-2xl font-semibold text-slate-800 mb-3">Initial Assessment and Original Engine Removal</h3>
-                <p class="mb-2">The project commences with the safe and thorough removal of the existing 350 engine. This step is crucial for preparing the engine bay for the new, larger, and more powerful BluePrint Engines 383 Stroker crate engine and ACES EFI MPFI system. This operation requires appropriate lifting equipment, such as a robust engine hoist or lift, to ensure the safety of the technician and prevent any damage to the engine or vehicle during the extraction process. Proper preparation, including disconnecting all electrical, fuel, and cooling lines, is essential before lifting the engine.</p>
+                <p class="mb-2">The project commences with the safe and thorough removal of the existing 350 engine and transmission. This operation requires appropriate lifting equipment, such as a robust engine hoist or lift. Proper preparation, including disconnecting all electrical, fuel, and cooling lines, is essential before lifting the engine.</p>
                 <h3 class="text-2xl font-semibold text-slate-800 mb-3 mt-4">Engine Bay & Chassis Preparation</h3>
-                <p class="mb-2">With the original engine removed, the engine bay and chassis will undergo preparation. This includes thorough cleaning, inspection of engine mounts for wear or damage, and planning the routing for new wiring harnesses, fuel lines (for the MPFI system), and cooling lines. Any necessary modifications for clearance or fitment of the larger 383 stroker will be identified and addressed in this phase.</p>
+                <p class="mb-2">With the original drivetrain removed, the engine bay and chassis will undergo preparation. Because the Smeding 383 is a Gen 1 Small Block Chevy architecture, it will drop directly onto the original factory frame mounts, simplifying installation. We will also plan the routing for the Edelbrock Pro-Flo 4 EFI wiring harness and high-pressure fuel lines (58 PSI required).</p>
             </div>
-
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Required Specialized Tools <span class="text-sky-600 text-sm">(Click to expand)</span></h3>
                 <div class="card-detail">
                     <p>A successful engine swap requires specialized tools beyond standard garage equipment. Key tools for this phase include:</p>
                     <ul class="list-disc list-inside mt-2 space-y-1">
                         <li>Engine hoist/lift and engine stand</li>
-                        <li>Transmission jack (if removing transmission)</li>
+                        <li>Transmission jack (for 4L80E swap)</li>
                         <li>Various hand tools (sockets, wrenches, screwdrivers)</li>
                         <li>Fluid drain pans</li>
                         <li>Wire cutters/strippers for disconnecting electrical components</li>
                         <li>Line wrenches for fuel and brake lines</li>
                     </ul>
-                    <p class="mt-2 text-sm">Ensure all safety precautions are followed during engine removal.</p>
                 </div>
             </div>
         </section>
 
         <section id="phase2" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 2: Crate Engine & MPFI Installation</h2>
-            <p class="mb-6 text-lg">This phase focuses on selecting and installing the heart of your performance engine: cylinder heads, camshaft, rotating assembly, valvetrain, and critical lubrication components. These components must work synergistically for optimal airflow, valve timing, durability, and **sustained reliability for long trips**.</p>
-            
+            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 2: Crate Engine & Pro-Flo 4 EFI Installation</h2>
+
             <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
                 <h3 class="text-2xl font-semibold text-slate-800 mb-3">Key Component Purchases & Estimated Costs for Phase 2</h3>
                 <ul class="list-disc list-inside space-y-1 text-lg">
-                    <li>**BluePrint Engines 383ci Stroker Crate Engine:** _(Refer to <a href="https://blueprintengines.com/products/efi-vortec-383ci-stroker-crate-engine-small-block-gm" target="_blank" class="text-sky-600 hover:underline">BluePrint Engines website</a> for current pricing)_</li>
-                    <li>**ACES EFI Wild Card™ Multi-Port Fuel Injection System:** _(Refer to <a href="https://acesefi.com/products/wild-card%E2%84%A2-efi?variant=41248171098318" target="_blank" class="text-sky-600 hover:underline">ACES EFI website</a> for current pricing)_</li>
-                    <li>**Engine Mounts, Hoses, Fluids, Misc. Hardware:** ~$500 - $1000 (Initial estimates, highly variable)</li>
+                    <li>**Smeding 383 Cruiser Crate Engine:** Engineered for high vacuum (power brakes) and a smooth, non-lopey idle.</li>
+                    <li>**Edelbrock Pro-Flo 4 EFI System #35760 (+$2,415.00):** Pre-installed and baseline-tuned by Smeding Performance. Includes throttle body, 29 lb/hr injectors, ECU, distributor, fuel rails, MAP/TPS/IAT sensors, wideband O2, and labeled plug-and-play harness.</li>
+                    <li>**Ceramic Coated Long Tube Headers:** (e.g., Summit Racing or Hedman for 88-98 OBS fitment)</li>
+                    <li>**Engine Mounts, Hoses, Fluids:** ~$500 - $1000</li>
                 </ul>
-                <p class="text-sm text-slate-600 mt-2">These are the primary major purchases for the engine and fuel system. Costs will vary based on supplier and specific options.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">BluePrint 383 Stroker Installation <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Smeding 383 Cruiser Installation <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Safely and correctly install the pre-assembled BluePrint 383 Stroker crate engine into the vehicle's engine bay, connecting it to the transmission and all necessary vehicle systems.</p>
+                        <p class="font-semibold">Goal:</p> <p>Safely install the pre-assembled Smeding 383 Cruiser crate engine into the vehicle's engine bay.</p>
                         <p class="font-semibold mt-2">Key Steps:</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>Positioning the engine for proper alignment with the transmission.</li>
-                            <li>Securing engine mounts and bellhousing bolts.</li>
-                            <li>Connecting exhaust headers/manifolds.</li>
-                            <li>Installing accessories (power steering pump, alternator, A/C compressor if applicable).</li>
-                            <li>Connecting coolant hoses and filling the cooling system.</li>
-                            <li>Filling the engine with appropriate oil.</li>
-                            <li>Initial checks for fluid leaks and clearances.</li>
+                            <li>Lowering the engine onto the factory OBS frame mounts.</li>
+                            <li>Installing the Ceramic Coated Long Tube Headers for maximum low-end torque.</li>
+                            <li>Installing front accessory drive (water pump, alternator, power steering).</li>
+                            <li>Connecting coolant hoses and filling the system.</li>
                         </ul>
-                        <p class="mt-2 text-sm">Follow BluePrint Engines' specific installation guidelines to ensure warranty compliance and optimal performance.</p>
                     </div>
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">ACES EFI Wild Card™ MPFI System Integration <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Edelbrock Pro-Flo 4 EFI Connection & Setup <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Integrate the multi-port fuel injection system, ensuring precise fuel delivery and advanced engine management.</p>
-                        <p class="font-semibold mt-2">Components & Steps:</p>
+                        <p class="font-semibold">Goal:</p> <p>Connect the pre-installed Pro-Flo 4 system to vehicle power, fuel, and exhaust — system arrives dyno-baselined by Smeding.</p>
+                        <p class="font-semibold mt-2">Connection Steps:</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**MPFI Intake Manifold:** Installation of the specific intake manifold designed for MPFI.</li>
-                            <li>**Fuel Rails & Injectors:** Mounting the fuel rails and installing the injectors into the manifold.</li>
-                            <li>**Wiring Harness:** Routing and connecting the comprehensive wiring harness for the ECM, injectors, sensors (MAP, TPS, IAT, O2), and ignition system.</li>
-                            <li>**ECM Mounting:** Securely mounting the ACES EFI Engine Control Module (ECM) in a suitable location, away from excessive heat and vibration.</li>
-                            <li>**Sensor Connections:** Connecting all necessary sensors for engine operation (e.g., coolant temp, oil pressure, crankshaft position, camshaft position if applicable).</li>
+                            <li>Connect the plug-and-play labeled EFI wiring harness to the vehicle's ignition, battery, and accessory circuits.</li>
+                            <li>Plumb high-pressure -6AN feed and return fuel lines to the Pro-Flo 4 fuel rails (58 PSI operating pressure).</li>
+                            <li><strong>Fabrication:</strong> Weld M18x1.5 bung into the header collector at 15-degree angle for the included Wideband O2 sensor.</li>
+                            <li>Mount the Edelbrock Pro-Flo 4 ECU in a protected, heat-shielded location in the cab or firewall.</li>
+                            <li>Download the free <strong>Edelbrock E-Tuner 4 app</strong> (iOS/Android) and pair via Bluetooth to the ECU for initial startup calibration.</li>
                         </ul>
-                        <p class="mt-2 text-sm">Precise wiring and sensor connections are crucial for the MPFI system's performance and reliability. Refer to ACES EFI's detailed instructions.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section id="phase3" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 3: Fuel, Air, and Ignition System Upgrades (EFI/TBI Focus)</h2>
-            <p class="mb-6 text-lg">Increased horsepower and torque from the 383 Stroker mean more heat and stress. Upgrading the cooling system is essential for thermal stability during sustained operation. The driveline (transmission, driveshaft, rear end) must also be reinforced to handle the extra power reliably. Crucially, the **electrical system** needs to support the increased demands of modern MPFI and electric fans.</p>
-
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Parts Costs for Phase 3</h3>
-                <ul class="list-disc list-inside space-y-1 text-lg">
-                    <li>**Minimum Estimated Cost:** ~$2,065</li>
-                    <li>**Mid-Range Estimated Cost:** ~$3,100</li>
-                </ul>
-                <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts, avoiding high-end components, but will need review with the new HP target.</p>
-            </div>
+            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 3: Driveline & Cooling Systems Upgrades</h2>
+            <p class="mb-6 text-lg">Increased horsepower means more heat and stress. Upgrading the cooling system is essential for thermal stability during 6-7 hour trips. The driveline must be robustly reinforced with a 4L80E electronic transmission to handle the 450 lb-ft of torque reliably.</p>
 
             <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Driveline Upgrades (4L80E Swap) <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <div class="card-detail">
+                        <p class="font-semibold">Goal:</p> <p>Reliably transfer torque to the wheels using a robust, modern electronic overdrive transmission.</p>
+                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
+                        <ul class="list-disc list-inside space-y-1">
+                            <li>**Transmission (4L80E):** Upgrade to a heavy-duty 4L80E electronic overdrive transmission. This ensures maximum durability on long road trips.</li>
+                            <li>**Torque Converter:** 1,600-2,000 RPM stall converter. Because the Smeding Cruiser has a mild cam, a near-stock converter keeps stop-and-go traffic feeling tight.</li>
+                            <li>**Transmission Control:** Standalone 4L80E Transmission Control Module (TCM) — controls shift points, lockup, and line pressure. (Specific TCM TBD — options include TCI EZ-TCU or similar standalone units.)</li>
+                            <li>**Driveshaft:** Modifications or a custom driveshaft may be required to accommodate the length of the 4L80E.</li>
+                            <li>**Rear End:** Consider upgrading to a Limited-Slip Differential (LSD) / Posi Unit for improved traction.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Cooling System <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Manage increased heat effectively to prevent overheating and ensure engine longevity, especially during 6-7 hour trips.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**Radiator:** High-flow, larger capacity aluminum radiator (e.g., 2-row or 3-row core). This is critical for efficient heat dissipation. Available new. (Est. cost: $200 - $400)</li>
-                            <li>**Electric Cooling Fans:** Dual electric fans with a proper shroud for maximum airflow, controlled by the EFI system or a dedicated thermostat controller. These provide consistent cooling regardless of vehicle speed. Available new. (Est. cost: $150 - $300)</li>
-                            <li>**High-Flow Water Pump:** Ensures adequate coolant circulation. Available new. (Est. cost: $50 - $100)</li>
-                            <li>**Low-Temperature Thermostat:** (e.g., 160°F or 180°F) to allow the engine to run cooler, reducing thermal stress. Available new. (Est. cost: $15 - $30)</li>
-                            <li>**Quality Coolant Hoses and Clamps:** Replace old, fatigued hoses to prevent leaks and blowouts.</li>
+                            <li>**Radiator:** 3-row aluminum radiator critical for efficient heat dissipation.</li>
+                            <li>**Fans:** Dual electric fans controlled by the Edelbrock Pro-Flo 4 ECU fan output for consistent cooling in traffic.</li>
+                            <li>**High-Flow Water Pump:** Ensures adequate coolant circulation.</li>
                         </ul>
-                        <p class="mt-2 text-sm">Overheating is a primary cause of engine failure, particularly in performance applications and during sustained highway driving. Invest in a robust cooling system for peace of mind.</p>
                     </div>
                 </div>
-
+                
                 <div class="bg-white p-6 rounded-lg shadow-lg">
                     <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Alternator Upgrade <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Provide sufficient electrical power for the new MPFI system, electric cooling fans, and other accessories, preventing voltage drops and ensuring reliable operation.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**High-Output Alternator:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Upgrade from stock (typically 60-80 amp) to a 100-140+ amp alternator. Modern MPFI systems and powerful electric fans draw significant current. Brands like Powermaster, ACDelco (high-output reman), or aftermarket high-amp units. Available new or quality refurbished. (Est. cost: $150 - $300)</li>
-                                </ul>
-                            </li>
-                            <li>**Heavy-Duty Wiring:** Consider upgrading the main power wire from the alternator to the battery/fuse box to a larger gauge (e.g., 4-gauge or 2-gauge) to handle the increased current safely.</li>
+                            <li>**High-Output Alternator:** Upgrade from stock to a 100-140+ amp alternator to power the Pro-Flo 4 EFI system, TCM, and electric fans.</li>
+                            <li>**Heavy-Duty Wiring:** Upgrade the main power wire to a 4-gauge or 2-gauge to handle increased current safely.</li>
                         </ul>
-                        <p class="mt-2 text-sm">An under-sized alternator can lead to low voltage, affecting MPFI performance, charging issues, and potential damage to electrical components. Essential for long-trip reliability.</p>
-                    </div>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Driveline Upgrades <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold">Goal:</p> <p>Reliably transfer 420+ HP to the wheels and prevent component failure under increased stress.</p>
-                        <p class="font-semibold mt-2">Components (New/Refurbished):</p>
-                        <ul class="list-disc list-inside space-y-1">
-                            <li>**Transmission (700R4):**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Performance rebuild kit (e.g., Stage 2 or 3 for 400+ HP). Focus on stronger clutches, bands, and a good shift kit for firm, reliable shifts. Available new or refurbished. (Est. cost: $400 - $800 for kit; $1000 - $2000+ for professional rebuild)</li>
-                                    <li>Alto Red Eagle High Performance Clutch Kit. Available new or refurbished.</li>
-                                    <li>Corvette Servo Piston Assembly (common upgrade for firmer 1-2 and 2-3 shifts). Available new or refurbished.</li>
-                                </ul>
-                            </li>
-                            <li>**Driveshaft:**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>A balanced, heavy-duty steel or aluminum driveshaft is a recommended upgrade for longevity and to prevent vibrations at highway speeds with the higher horsepower. Available new. (Est. cost: $300 - $800)</li>
-                                    <li>Heavy Duty Chromoly Slip Yoke (if not part of a full driveshaft upgrade). Available new.</li>
-                                </ul>
-                            </li>
-                            <li>**Rear End (GM 10-bolt):**
-                                <ul class="list-disc list-inside ml-4">
-                                    <li>Upgrading to a **Limited-Slip Differential (LSD) / Posi Unit** (e.g., Eaton Posi, Yukon Dura Grip) is highly recommended for improved traction and more balanced power delivery, especially for a truck with significantly increased power. Available new. (Est. cost: $300 - $600 for unit)</li>
-                                    <li>Consider new bearings and seals (Master Install Kit) during any differential work. Available new. (Est. cost: $150 - $250)</li>
-                                    <li>High-Performance Gear Set: If changing gear ratios for better acceleration or highway cruising, ensure quality gears (e.g., Richmond, Motive Gear). (Est. cost: $150 - $300)</li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="mt-2 text-sm">The driveline is the next critical system after the engine. Reinforcing it ensures the power reaches the ground reliably and safely, especially important for extended driving and preventing breakdowns.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="phase5" class="content-section">
-            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 4: Initial Startup & Advanced MPFI Tuning</h2>
-            <p class="mb-6 text-lg">Tuning is paramount to unlock the full potential of the 383 Stroker with the ACES EFI MPFI system and ensure safe, efficient, and reliable operation across its entire range, especially for long-trip reliability. This phase includes initial system checks, engine break-in procedures (as recommended by BluePrint Engines), and detailed calibration of the ACES EFI engine management system.</p>
-
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
-                <h3 class="text-2xl font-semibold text-slate-800 mb-3">Estimated Costs for Phase 4</h3>
-                <ul class="list-disc list-inside space-y-1 text-lg">
-                    <li>**Required Tools/Sensors (e.g., Wideband O2 Sensor):** ~$150 - $500 (Potentially included with ACES EFI kit)</li>
-                    <li>**Professional Dyno Tuning (Labor):** $750 - $1500+ (Highly recommended for optimal results and long-term reliability with the higher HP)</li>
-                </ul>
-                <p class="text-sm text-slate-600 mt-2">These estimates are for new or refurbished parts. Custom tuning labor costs are significant but yield the best results.</p>
-            </div>
-
+        <section id="phase4" class="content-section">
+            <h2 class="text-3xl font-bold text-sky-700 mb-6">Phase 4: Initial Startup & Advanced Tuning</h2>
+            
             <div class="space-y-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">MPFI System Fundamentals (ACES EFI Wild Card™) <span class="text-sky-600 text-sm">(Details)</span></h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Pro-Flo 4 E-Tuner App Setup & Self-Learning Calibration <span class="text-sky-600 text-sm">(Details)</span></h3>
                     <div class="card-detail">
-                        <p>The ACES EFI Wild Card™ MPFI system offers superior fuel atomization, precise fuel control via individual injectors per cylinder, and advanced self-learning capabilities. This leads to better cold starts, improved drivability, enhanced fuel economy, and higher ultimate power potential compared to TBI or carburetors. For long trips, this adaptability and precision are crucial for consistent performance and efficiency.</p>
-                        <p class="font-semibold mt-2">Benefits:</p> Excellent drivability, improved cold starts, better fuel economy, adaptability to conditions, and high power potential.
-                        <p class="font-semibold mt-2">Drawbacks:</p> Initial setup can be more complex than TBI, requires a high-pressure fuel system, and optimal performance greatly benefits from professional tuning.
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">ECM Tuning Options (MPFI) <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p class="font-semibold mt-2">Options:</p>
+                        <p class="font-semibold mt-2">Startup & Tuning Steps:</p>
                         <ul class="list-disc list-inside space-y-1">
-                            <li>**Self-Learning (Initial Setup):** The ACES EFI Wild Card™ system features self-learning capabilities for initial setup, allowing the engine to run well for most street applications.</li>
-                            <li>**Handheld Tuner Adjustments:** The included handheld display allows for monitoring various parameters and making basic adjustments to fuel, timing, and idle settings.</li>
-                            <li>**Laptop Software Tuning:** For maximizing the 420+ HP target, optimizing drivability, and handling specific engine characteristics (e.g., aggressive camshafts, specific vehicle weight), laptop-based tuning software (provided by ACES EFI) is highly recommended. This allows for fine-tuning fuel maps, ignition tables, idle control, and other advanced parameters.</li>
-                            <li>**Professional Dyno Tuning:** For the absolute best performance, efficiency, and reliability, especially for long trips and a high-performance crate engine, a professional dyno tune is invaluable. A skilled tuner can optimize the MPFI system for your specific engine combination and driving conditions, ensuring maximum safe power and optimal drivability. (Est. labor cost: $750 - $1500+)</li>
+                            <li>**Initial Startup:** System arrives with a Smeding Performance baseline calibration. First startup uses that map — no laptop or handheld required.</li>
+                            <li>**Bluetooth Pairing:** Download the free <strong>Edelbrock E-Tuner 4 app</strong> (iOS or Android) and pair via Bluetooth to the Pro-Flo 4 ECU for real-time monitoring and adjustment.</li>
+                            <li>**Self-Learning:** The wideband O2 sensor continuously reads exhaust gases and automatically trims the fuel map. The ECU self-learns idle, cruise, and part-throttle fueling without manual input.</li>
+                            <li>**App Controls:** Air-fuel ratio targets, ignition curve, idle speed, acceleration enrichment, electric fan activation temps, and rev limiter are all adjustable via the E-Tuner 4 app from the driver's seat.</li>
+                            <li>**Professional Dyno Tuning (Optional but Recommended):** For absolute best performance, fuel economy, and reliability on 6-7 hour trips, a professional dyno tune will maximize the Smeding baseline calibration.</li>
                         </ul>
-                        <p class="mt-2 text-sm">A proper MPFI ECM and tuning strategy are vital for safety, efficiency, reliability, and achieving 420+ HP with optimal drivability across all conditions, including extended highway cruising.</p>
-                    </div>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-3 toggle-details cursor-pointer">Monitoring: Wideband O2 Sensor <span class="text-sky-600 text-sm">(Details)</span></h3>
-                    <div class="card-detail">
-                        <p>Indispensable for accurate tuning and real-time monitoring of your engine's health. A wideband O2 sensor provides precise Air-Fuel Ratio (AFR) data across a broad range, which is critical for ensuring the engine is not running too rich (wasting fuel, fouling plugs) or too lean (causing engine damage). The ACES EFI Wild Card™ system typically includes one, but if not, a standalone unit is a must-have.</p>
-                        <p class="font-semibold mt-2">Popular option:</p> **AEM UEGO Wideband O2 Air Fuel Ratio Gauge (PN: AEM 30-4110)**. Available new. (Est. cost: $150 - $250)
                     </div>
                 </div>
             </div>
@@ -324,7 +250,7 @@
                 <div class="flex flex-col md:flex-row md:items-center md:space-x-4 mb-4">
                     <div class="mb-2 md:mb-0">
                         <label for="budget" class="block text-sm font-medium text-slate-700">Total Project Budget ($):</label>
-                        <input type="number" id="budget" class="mt-1 block w-full md:w-48 rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2" placeholder="e.g., 12000">
+                        <input type="text" id="budget" class="mt-1 block w-full md:w-48 rounded-md border-gray-300 shadow-sm focus:border-sky-500 focus:ring-sky-500 sm:text-sm p-2" placeholder="e.g., 15000">
                     </div>
                     <div class="mb-2 md:mb-0">
                         <label for="actual-cost" class="block text-sm font-medium text-slate-700">Actual Cost Spent ($):</label>
@@ -346,8 +272,7 @@
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Engine Swap & MPFI Conversion Tasks (Manual Status - Consider moving to DB)</h3>
-                    <p class="mb-4 text-sm text-slate-600">Refer to the detailed sections above for specific part numbers and costs.</p>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Engine Swap & MPFI Conversion Tasks</h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <span>Phase 1: Original Engine Removal & Prep:</span>
@@ -368,7 +293,7 @@
                             </select>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span>Phase 3: Supporting Systems & Driveline:</span>
+                            <span>Phase 3: Supporting Systems & 4L80E:</span>
                             <select id="engine-phase3-status" class="p-1 border rounded-md">
                                 <option value="not-started">Not Started</option>
                                 <option value="in-progress">In Progress</option>
@@ -377,7 +302,7 @@
                             </select>
                         </div>
                         <div class="flex items-center justify-between">
-                            <span>Phase 4: Initial Startup & Advanced MPFI Tuning:</span>
+                            <span>Phase 4: Initial Startup & MPFI Tuning:</span>
                             <select id="engine-phase4-status" class="p-1 border rounded-md">
                                 <option value="not-started">Not Started</option>
                                 <option value="in-progress">In Progress</option>
@@ -389,7 +314,7 @@
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Exterior Tasks (Manual Status - Consider moving to DB)</h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Exterior Tasks</h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <span>Replace Side Marker Lights:</span>
@@ -407,7 +332,7 @@
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Interior Tasks (Manual Status - Consider moving to DB)</h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Interior Tasks</h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <span>Replace Interior Door Parts:</span>
@@ -417,7 +342,7 @@
                 </div>
 
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Body & Other Tasks (Manual Status - Consider moving to DB)</h3>
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Body & Other Tasks</h3>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between">
                             <span>Fix Rear Tailgate (doesn't stay closed):</span>
@@ -448,16 +373,15 @@
                 <p class="mb-4">A structured project plan is key. This framework suggests an Excel plan with the following stages and columns to track progress, costs, and materials systematically for the new build direction.</p>
                 <h4 class="text-xl font-semibold text-slate-800 mb-2">Key Project Stages:</h4>
                 <ol class="list-decimal list-inside space-y-1 mb-4">
-                    <li>Planning & Sourcing (Engine, MPFI, Supporting Components)</li>
-                    <li>Original Engine Removal</li>
+                    <li>Planning & Sourcing (Smeding 383 w/ Pro-Flo 4, 4L80E)</li>
+                    <li>Original Engine & Transmission Removal</li>
                     <li>Engine Bay & Chassis Preparation</li>
-                    <li>Crate Engine Installation</li>
-                    <li>MPFI System Installation & Integration</li>
-                    <li>Fuel & Ignition System Setup</li>
-                    <li>Supporting Systems Upgrades (Cooling, Electrical, Driveline)</li>
+                    <li>Smeding Crate Engine Installation (Pro-Flo 4 pre-installed)</li>
+                    <li>Edelbrock Pro-Flo 4 EFI Harness & Fuel Line Connection</li>
+                    <li>Fuel System Setup (High Pressure Pump/Lines — 58 PSI)</li>
+                    <li>Driveline Setup (4L80E & Standalone TCM)</li>
                     <li>Initial Startup & Break-in</li>
-                    <li>Advanced MPFI Tuning (Dyno)</li>
-                    <li>Drivetrain Upgrades (Concurrent/Post-Engine)</li>
+                    <li>Pro-Flo 4 E-Tuner App Calibration & Self-Learning</li>
                 </ol>
                 <h4 class="text-xl font-semibold text-slate-800 mb-2">Suggested Excel Columns:</h4>
                 <ul class="list-disc list-inside space-y-1">
@@ -467,20 +391,11 @@
                     <li>Dependencies</li>
                     <li>Parts Required</li>
                     <li>Part Number</li>
-                    <li>Source (New/Refurbished)</li>
                     <li>Estimated Cost (USD)</li>
                     <li>Actual Cost (USD)</li>
                     <li>Status</li>
                     <li>Notes</li>
                 </ul>
-            </div>
-        </section>
-
-        <section id="conclusion" class="content-section pb-16">
-            <div class="bg-white p-8 rounded-lg shadow-xl">
-                <h2 class="text-3xl font-bold text-sky-700 mb-6">Realizing Your 420+ HP Goal with MPFI for Reliability</h2>
-                <p class="text-lg mb-4">Achieving 420+ horsepower from a 1990 GMC Sierra with a **BluePrint Engines 383 Stroker crate engine** and an **ACES EFI Wild Card™ MPFI conversion** is an ambitious and highly rewarding goal. This guide outlines a strategic approach focusing on the installation and integration of these high-performance components. The emphasis is on maximizing the engine's output while ensuring reliable power delivery.</p>
-                <p class="mb-4">The report emphasizes that precise **MPFI ECM tuning** is paramount to unlock the full potential of these upgrades, ensuring that the engine operates safely and efficiently across its entire range. Crucially, the focus on robust supporting systems—**cooling, oil pump, alternator, and driveline**—will ensure the vehicle's exceptional driveability and reliability for extended periods, making those 6-7 hour trips worry-free. The expected gains extend beyond raw horsepower and torque figures, encompassing improved throttle response, enhanced drivability, and a significantly more engaging driving experience. Patience, diligent research, and a steadfast commitment to quality in every phase of the project will culminate in a powerful, reliable, and highly satisfying 420+ horsepower MPFI 383 Stroker engine for the GMC Sierra.</p>
             </div>
         </section>
 
@@ -490,16 +405,28 @@
         <p>&copy; Interactive Guide based on the GMC Sierra Engine Swap Report.</p>
     </footer>
 
+    <div class="container mx-auto px-4 mt-8 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <h2 class="text-xl font-bold mb-4 text-gray-800">Ask the AI Mechanic (Llama 3.2)</h2>
+            <div id="chat-history" class="mb-4 h-64 overflow-y-auto bg-gray-50 p-4 rounded border border-gray-300">
+                <p class="text-gray-500 italic text-sm">Chat history will appear here...</p>
+            </div>
+            <div class="flex gap-2">
+                <input type="text" id="ai-question" class="flex-1 p-2 border border-gray-300 rounded focus:outline-none focus:border-blue-500" placeholder="E.g., What is the best cam upgrade for a 1990 Vortec swap?">
+                <button onclick="askMechanic()" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition font-semibold">Ask Llama</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // NEW CHART DATA AND INITIALIZATION FOR PROJECT PHASES
+        // Chart Data Initialization
         const projectPhaseCostsData = {
             labels: [
-                'Engine Removal & Prep',
-                'Crate Engine & MPFI Install',
-                'Supporting Systems & Driveline',
-                'Initial Startup & MPFI Tuning'
+                'Engine Removal',
+                'Crate Engine & MPFI',
+                'Supporting & 4L80E',
+                'Startup & Tuning'
             ],
-            // Example placeholder costs for the new phases - adjust these as needed!
             minCosts: [100, 7500, 2065, 900], 
             maxCosts: [200, 10500, 3100, 2000]
         };
@@ -513,14 +440,14 @@
                     {
                         label: 'Min Estimated Cost (USD)',
                         data: projectPhaseCostsData.minCosts,
-                        backgroundColor: 'rgba(59, 130, 246, 0.6)', // sky-500
+                        backgroundColor: 'rgba(59, 130, 246, 0.6)', 
                         borderColor: 'rgba(59, 130, 246, 1)',
                         borderWidth: 1
                     },
                     {
                         label: 'Max Estimated Cost (USD)',
                         data: projectPhaseCostsData.maxCosts,
-                        backgroundColor: 'rgba(14, 165, 233, 0.6)', // cyan-500
+                        backgroundColor: 'rgba(14, 165, 233, 0.6)', 
                         borderColor: 'rgba(14, 165, 233, 1)',
                         borderWidth: 1
                     }
@@ -532,45 +459,13 @@
                 scales: {
                     y: {
                         beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Estimated Cost (USD)'
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            autoSkip: false,
-                            maxRotation: 45,
-                            minRotation: 30,
-                            callback: function(value, index, values) {
-                                const label = this.getLabelForValue(value);
-                                return label.length > 20 ? label.substring(0,20) + '...' : label; // Adjust for longer labels
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                let label = context.dataset.label || '';
-                                if (label) {
-                                    label += ': ';
-                                }
-                                if (context.parsed.y !== null) {
-                                    label += new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(context.parsed.y);
-                                }
-                                return label;
-                            }
-                        }
-                    },
-                    legend: {
-                        position: 'top',
+                        title: { display: true, text: 'Estimated Cost (USD)' }
                     }
                 }
             }
         });
 
+        // UI Toggles
         const detailToggles = document.querySelectorAll('.toggle-details');
         detailToggles.forEach(toggle => {
             toggle.addEventListener('click', () => {
@@ -586,28 +481,22 @@
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('hidden');
         });
-        
-        const navLinks = navMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (window.innerWidth < 768) { 
-                    navMenu.classList.add('hidden');
-                }
-            });
-        });
 
-        // JavaScript for Project Tracker
+        // Project Tracker Logic
         const budgetInput = document.getElementById('budget');
         const actualCostInput = document.getElementById('actual-cost');
         const remainingBudgetDisplay = document.getElementById('remaining-budget');
         const costProgressBar = document.getElementById('cost-progress-bar');
         const progressPercentDisplay = document.getElementById('progress-percent');
-        const taskListFromDb = document.getElementById('task-list-from-db'); // Get the UL for tasks
+        const taskListFromDb = document.getElementById('task-list-from-db');
 
+        // NEW: Math function that handles commas safely
         function updateBudgetInfo() {
-            const budget = parseFloat(budgetInput.value) || 0;
+            const rawBudgetStr = budgetInput.value.replace(/,/g, '');
+            const budget = parseFloat(rawBudgetStr) || 0;
             const actualCost = parseFloat(actualCostInput.value) || 0; 
             const remaining = budget - actualCost;
+            
             remainingBudgetDisplay.textContent = remaining.toFixed(2);
 
             if (budget > 0) {
@@ -631,12 +520,11 @@
         async function fetchTotalCost() {
             try {
                 const response = await fetch('/api/total_cost');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                if (response.ok) {
+                    const data = await response.json();
+                    actualCostInput.value = data.total_cost.toFixed(2); 
+                    updateBudgetInfo(); 
                 }
-                const data = await response.json();
-                actualCostInput.value = data.total_cost.toFixed(2); 
-                updateBudgetInfo(); 
             } catch (error) {
                 console.error('Failed to fetch total cost:', error);
             }
@@ -645,13 +533,10 @@
         async function fetchAndDisplayTasks() {
             try {
                 const response = await fetch('/api/tasks');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP error!`);
                 const tasks = await response.json();
                 
-                taskListFromDb.innerHTML = ''; // Clear existing "Loading tasks..."
-
+                taskListFromDb.innerHTML = ''; 
                 if (tasks.length === 0) {
                     taskListFromDb.innerHTML = '<li>No tasks found in the database.</li>';
                     return;
@@ -660,90 +545,176 @@
                 tasks.forEach(task => {
                     const li = document.createElement('li');
                     li.className = 'bg-white shadow rounded-md p-4 mb-2 flex flex-col sm:flex-row sm:items-center sm:justify-between';
-                    li.setAttribute('data-task-id', task.id); 
+                    
+                    const desc = document.createElement('strong');
+                    desc.className = 'font-semibold text-lg mb-2 sm:mb-0 sm:w-1/3';
+                    desc.textContent = task.description;
+                    li.appendChild(desc);
 
-                    const taskDescription = document.createElement('strong');
-                    taskDescription.className = 'font-semibold text-lg mb-2 sm:mb-0 sm:w-1/3';
-                    taskDescription.textContent = task.description;
-                    li.appendChild(taskDescription);
+                    const controls = document.createElement('div');
+                    controls.className = 'flex flex-col sm:flex-row sm:items-center sm:space-x-4 w-full sm:w-2/3';
 
-                    const controlsDiv = document.createElement('div');
-                    controlsDiv.className = 'flex flex-col sm:flex-row sm:items-center sm:space-x-4 w-full sm:w-2/3';
-
-                    // Status Dropdown
                     const statusSelect = document.createElement('select');
                     statusSelect.className = 'p-2 border rounded-md mb-2 sm:mb-0 w-full sm:w-auto';
-                    ['Not Started', 'In Progress', 'Completed', 'On Hold'].forEach(statusOption => {
+                    ['Not Started', 'In Progress', 'Completed', 'On Hold'].forEach(opt => {
                         const option = document.createElement('option');
-                        option.value = statusOption;
-                        option.textContent = statusOption;
-                        if (task.status === statusOption) {
-                            option.selected = true;
-                        }
+                        option.value = opt;
+                        option.textContent = opt;
+                        if (task.status === opt) option.selected = true;
                         statusSelect.appendChild(option);
                     });
-                    controlsDiv.appendChild(statusSelect);
+                    controls.appendChild(statusSelect);
 
-                    // Cost Input
                     const costInput = document.createElement('input');
                     costInput.type = 'number';
-                    costInput.placeholder = 'Cost ($)';
                     costInput.className = 'p-2 border rounded-md mb-2 sm:mb-0 w-full sm:w-auto';
                     costInput.value = task.cost !== null ? task.cost.toFixed(2) : '';
-                    controlsDiv.appendChild(costInput);
+                    controls.appendChild(costInput);
 
-                    // Update Button
-                    const updateButton = document.createElement('button');
-                    updateButton.textContent = 'Update';
-                    updateButton.className = 'bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-md w-full sm:w-auto';
-                    updateButton.addEventListener('click', () => {
-                        updateTask(task.id, statusSelect.value, costInput.value);
-                    });
-                    controlsDiv.appendChild(updateButton);
+                    const updateBtn = document.createElement('button');
+                    updateBtn.textContent = 'Update';
+                    updateBtn.className = 'bg-sky-600 text-white font-bold py-2 px-4 rounded-md w-full sm:w-auto';
+                    updateBtn.onclick = () => updateTask(task.id, statusSelect.value, costInput.value);
+                    controls.appendChild(updateBtn);
 
-                    li.appendChild(controlsDiv);
+                    li.appendChild(controls);
                     taskListFromDb.appendChild(li);
                 });
             } catch (error) {
-                console.error('Failed to fetch tasks:', error);
-                taskListFromDb.innerHTML = '<li>Failed to load tasks from the server. Make sure the Flask server is running.</li>';
+                taskListFromDb.innerHTML = '<li>Failed to load tasks from server.</li>';
             }
         }
 
         async function updateTask(taskId, newStatus, newCost) {
             try {
-                const response = await fetch(`/api/tasks/${taskId}`, {
+                await fetch(`/api/tasks/${taskId}`, {
                     method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ status: newStatus, cost: parseFloat(newCost) || 0 }), 
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ status: newStatus, cost: parseFloat(newCost) || 0 })
                 });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(`HTTP error! status: ${response.status}, message: ${errorData.message}`);
-                }
-
-                const result = await response.json();
-                console.log(result.message);
-                await fetchAndDisplayTasks(); 
-                await fetchTotalCost(); 
+                fetchAndDisplayTasks(); 
+                fetchTotalCost(); 
             } catch (error) {
                 console.error('Failed to update task:', error);
-                alert('Failed to update task. Check console for details.');
             }
         }
 
-        // Initial calls when the page loads
-        if (budgetInput) { 
-            budgetInput.addEventListener('input', updateBudgetInfo); 
-        } else {
-            console.warn("Budget input element not found.");
-        }
-        
         fetchTotalCost(); 
         fetchAndDisplayTasks(); 
+
+        // AI Mechanic Script
+        async function askMechanic() {
+            const questionInput = document.getElementById('ai-question');
+            const chatHistory = document.getElementById('chat-history');
+            const question = questionInput.value.trim();
+
+            if (!question) return;
+
+            questionInput.value = '';
+            chatHistory.innerHTML += `<div class="mb-3 text-gray-800"><strong>You:</strong> ${question}</div>`;
+            chatHistory.innerHTML += `<div id="loading" class="mb-3 text-blue-600 italic">Llama 3.2 is looking at the shop manual...</div>`;
+            chatHistory.scrollTop = chatHistory.scrollHeight; 
+
+            try {
+                const response = await fetch('/ask_ai', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question: question })
+                });
+                
+                const data = await response.json();
+                document.getElementById('loading').remove();
+                
+                if (data.answer) {
+                    const formattedAnswer = data.answer.replace(/\n/g, '<br>');
+                    chatHistory.innerHTML += `<div class="mb-4 text-gray-700 bg-blue-50 p-3 rounded border border-blue-100"><strong>AI Mechanic:</strong><br>${formattedAnswer}</div>`;
+                } else {
+                    chatHistory.innerHTML += `<div class="mb-4 text-red-500"><strong>Error:</strong> ${data.error}</div>`;
+                }
+            } catch (error) {
+                document.getElementById('loading').remove();
+                chatHistory.innerHTML += `<div class="mb-4 text-red-500"><strong>Error:</strong> Failed to connect to the backend server.</div>`;
+            }
+            
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        document.getElementById('ai-question').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') askMechanic();
+        });
+
+
+        // --- Manual Task State Persistence (Checkboxes, Dropdowns, & Budget) ---
+
+        // List of all the hardcoded HTML element IDs we want to track
+        const manualElements = [
+            'engine-phase1-status', 'engine-phase2-status', 'engine-phase3-status', 'engine-phase4-status',
+            'task-side-markers', 'task-front-lights', 'task-grill', 'task-interior-doors',
+            'task-tailgate-status', 'task-weather-seal-status',
+            'budget' 
+        ];
+
+        // 1. Fetch and apply saved states when the page loads
+        async function loadUIState() {
+            try {
+                const response = await fetch('/api/ui_state');
+                if (response.ok) {
+                    const states = await response.json();
+                    manualElements.forEach(id => {
+                        const el = document.getElementById(id);
+                        if (el && states[id] !== undefined) {
+                            if (el.type === 'checkbox') {
+                                el.checked = states[id] === 'true';
+                            } else {
+                                el.value = states[id];
+                            }
+                        }
+                    });
+                    
+                    if (typeof updateBudgetInfo === 'function') {
+                        updateBudgetInfo();
+                    }
+                }
+            } catch (error) {
+                console.error('Failed to load UI state:', error);
+            }
+        }
+
+        // 2. Send the new state to Flask whenever a user clicks or types something
+        async function saveUIState(id, value) {
+            try {
+                await fetch('/api/ui_state', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ element_id: id, state_value: String(value) })
+                });
+            } catch (error) {
+                console.error('Failed to save UI state:', error);
+            }
+        }
+
+// 3. Attach unified listeners to ALL inputs
+        manualElements.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                // SAVE TO DATABASE ONLY ON 'CHANGE' (when you press Enter or click away)
+                // This prevents SQLite from locking up from too many requests at once.
+                el.addEventListener('change', (e) => {
+                    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+                    saveUIState(id, value);
+                    if (id === 'budget') updateBudgetInfo(); 
+                });
+                
+                // VISUAL MATH ONLY ON 'INPUT' (while you are typing)
+                // This updates the progress bar live, but DOES NOT save to the database yet.
+                if (id === 'budget') {
+                    el.addEventListener('input', updateBudgetInfo);
+                }
+            }
+        });
+
+        // Trigger the load function immediately when the script runs
+        loadUIState();
 
     </script>
 </body>

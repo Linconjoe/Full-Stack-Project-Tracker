@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiring Diagrams — 1990 GMC Sierra</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .diagram-card { cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
+        .diagram-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
+        .filter-btn.active { background-color: #0ea5e9; color: white; }
+        /* Lightbox */
+        #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 1000; overflow-y: auto; }
+        #lightbox.open { display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem; }
+        /* Zoom container — scroll-based pan, no transform tricks */
+        #img-container {
+            width: 100%; max-height: 65vh;
+            overflow: auto;
+            border: 2px solid #334155; border-radius: 6px; background: #0f172a;
+            display: flex; align-items: flex-start; justify-content: center;
+        }
+        #lightbox-img {
+            display: block;
+            width: 100%;        /* initial fit — overridden by JS on zoom */
+            height: auto;
+            user-select: none;
+        }
+        .ai-response { white-space: pre-wrap; line-height: 1.6; }
+        .spinner { display: none; }
+        .spinner.active { display: inline-block; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-700">
+
+    <!-- Nav -->
+    <nav class="bg-slate-800 text-white p-4 fixed w-full top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">383 Cruiser — Wiring Diagrams</h1>
+            <a href="/" class="text-sky-300 hover:text-sky-100 text-sm font-semibold">← Back to Project</a>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 pt-24 pb-16">
+
+        <!-- Header -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-1">GM Truck Wiring Diagrams</h2>
+            <p class="text-slate-500 text-sm">1988–1998 · 29 figures · Click any diagram to enlarge and ask the AI Mechanic</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 mb-8">
+            <div class="flex flex-wrap gap-2 items-center mb-3">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider w-full mb-1">System</span>
+                <button class="filter-btn active text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="system" data-value="all">All</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="system" data-value="engine">Engine</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="system" data-value="chassis">Chassis</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="system" data-value="full-vehicle">Full Vehicle</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="system" data-value="reference">Reference</button>
+            </div>
+            <div class="flex flex-wrap gap-2 items-center">
+                <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider w-full mb-1">Engine</span>
+                <button class="filter-btn active text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="engine" data-value="all">All Engines</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="engine" data-value="5.7L">5.7L</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="engine" data-value="5.0L">5.0L</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="engine" data-value="4.3L">4.3L</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="engine" data-value="7.4L">7.4L</button>
+                <button class="filter-btn text-xs px-3 py-1.5 rounded-full border border-slate-300 bg-slate-100 font-semibold" data-filter="engine" data-value="6.5L">6.5L Diesel</button>
+            </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            <!-- populated by JS -->
+        </div>
+
+        <p id="no-results" class="hidden text-center text-slate-400 py-16 text-sm">No diagrams match the selected filters.</p>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <div class="w-full max-w-5xl">
+            <!-- Lightbox header -->
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 id="lb-title" class="text-white text-lg font-bold"></h3>
+                    <p id="lb-meta" class="text-slate-400 text-sm mt-0.5"></p>
+                </div>
+                <button onclick="closeLightbox()" class="text-slate-400 hover:text-white text-2xl leading-none ml-4 flex-shrink-0">✕</button>
+            </div>
+
+            <!-- Zoom controls -->
+            <div class="flex items-center gap-2 mb-2">
+                <button onclick="zoomIn()"  class="bg-slate-700 hover:bg-slate-600 text-white text-sm px-3 py-1 rounded font-bold">＋ Zoom In</button>
+                <button onclick="zoomOut()" class="bg-slate-700 hover:bg-slate-600 text-white text-sm px-3 py-1 rounded font-bold">－ Zoom Out</button>
+                <button onclick="resetZoom()" class="bg-slate-600 hover:bg-slate-500 text-white text-sm px-3 py-1 rounded">Reset</button>
+                <span id="zoom-level" class="text-slate-400 text-xs ml-1">100%</span>
+                <a id="open-fullsize" href="#" target="_blank"
+                   class="ml-auto bg-sky-700 hover:bg-sky-600 text-white text-xs px-3 py-1 rounded font-semibold">
+                    Open Full Size ↗
+                </a>
+            </div>
+            <p class="text-slate-500 text-xs mb-2">Scroll to zoom · Click &amp; drag to pan · Double-click to reset</p>
+
+            <!-- Diagram image -->
+            <div id="img-container" class="mb-6">
+                <img id="lightbox-img" src="" alt="Wiring Diagram" draggable="false" />
+            </div>
+
+            <!-- AI Mechanic Panel -->
+            <div class="bg-slate-800 rounded-xl border border-slate-600 p-5">
+                <div class="flex items-center gap-2 mb-3">
+                    <span class="text-sky-400 font-bold text-sm">AI Mechanic</span>
+                    <span id="lb-model-badge" class="text-xs bg-slate-700 text-slate-400 px-2 py-0.5 rounded-full"></span>
+                </div>
+                <p class="text-slate-400 text-xs mb-3">Ask a question about this specific diagram. Verify AI answers visually — fine wire details may not be read accurately.</p>
+                <div class="flex gap-2 mb-3">
+                    <input id="diagram-question" type="text"
+                        placeholder="e.g. What color is the ignition feed wire?"
+                        class="flex-1 bg-slate-700 text-white text-sm rounded-lg px-3 py-2 border border-slate-600 focus:outline-none focus:border-sky-500 placeholder-slate-500"
+                        onkeydown="if(event.key==='Enter') askDiagram()" />
+                    <button onclick="askDiagram()"
+                        class="bg-sky-600 hover:bg-sky-500 text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
+                        <span>Ask</span>
+                        <svg id="ai-spinner" class="spinner w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="white" stroke-width="4"/>
+                            <path class="opacity-75" fill="white" d="M4 12a8 8 0 018-8v8z"/>
+                        </svg>
+                    </button>
+                </div>
+                <!-- Quick prompts -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="text-xs text-slate-500">Quick:</span>
+                    <button class="text-xs text-sky-400 hover:text-sky-300" onclick="setQ('Describe the main circuits shown in this diagram.')">Describe circuits</button>
+                    <button class="text-xs text-sky-400 hover:text-sky-300" onclick="setQ('What are the wire colors for the fuel injector circuit?')">Injector wire colors</button>
+                    <button class="text-xs text-sky-400 hover:text-sky-300" onclick="setQ('Where is the ground reference for this system?')">Ground reference</button>
+                    <button class="text-xs text-sky-400 hover:text-sky-300" onclick="setQ('What fuses or relays are shown?')">Fuses &amp; relays</button>
+                </div>
+                <div id="ai-answer-box" class="hidden bg-slate-900 rounded-lg p-4">
+                    <p class="text-xs text-slate-500 mb-2" id="ai-answer-model"></p>
+                    <p id="ai-answer-text" class="text-slate-200 text-sm ai-response"></p>
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-4">
+                <button onclick="prevDiagram()" class="text-slate-400 hover:text-white text-sm px-4 py-2 bg-slate-700 rounded-lg">← Prev</button>
+                <span id="lb-fig-counter" class="text-slate-500 text-sm self-center"></span>
+                <button onclick="nextDiagram()" class="text-slate-400 hover:text-white text-sm px-4 py-2 bg-slate-700 rounded-lg">Next →</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allDiagrams = [];
+        let visibleDiagrams = [];
+        let currentFig = 1;
+        let activeFilters = { system: 'all', engine: 'all' };
+
+        // Load diagram index from API
+        async function loadDiagrams() {
+            const res = await fetch('/api/diagrams');
+            allDiagrams = await res.json();
+            applyFilters();
+        }
+
+        function applyFilters() {
+            visibleDiagrams = allDiagrams.filter(d => {
+                const sysMatch = activeFilters.system === 'all' || d.system === activeFilters.system;
+                const engMatch = activeFilters.engine === 'all' ||
+                                 d.engines.some(e => e.includes(activeFilters.engine)) ||
+                                 d.engines.includes('All');
+                return sysMatch && engMatch;
+            });
+            renderGallery();
+        }
+
+        function renderGallery() {
+            const gallery = document.getElementById('gallery');
+            const noResults = document.getElementById('no-results');
+            gallery.innerHTML = '';
+
+            if (visibleDiagrams.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            }
+            noResults.classList.add('hidden');
+
+            const systemColors = {
+                'engine': 'bg-sky-100 text-sky-700',
+                'chassis': 'bg-amber-100 text-amber-700',
+                'full-vehicle': 'bg-purple-100 text-purple-700',
+                'reference': 'bg-slate-100 text-slate-600'
+            };
+
+            visibleDiagrams.forEach(d => {
+                const badge = systemColors[d.system] || 'bg-slate-100 text-slate-600';
+                const card = document.createElement('div');
+                card.className = 'diagram-card bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden';
+                card.onclick = () => openLightbox(d.fig);
+                card.innerHTML = `
+                    <div class="bg-slate-100 flex items-center justify-center overflow-hidden" style="height:140px">
+                        <img src="/diagrams/img/${d.file}" alt="Fig ${d.fig}"
+                             class="max-h-full max-w-full object-contain p-2"
+                             loading="lazy" />
+                    </div>
+                    <div class="p-3">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-xs font-bold text-slate-400">Fig ${d.fig}</span>
+                            <span class="text-xs px-2 py-0.5 rounded-full font-semibold ${badge}">${d.system}</span>
+                        </div>
+                        <p class="text-xs text-slate-700 font-semibold leading-snug line-clamp-2">${d.title}</p>
+                        <p class="text-xs text-slate-400 mt-1">${d.years} · ${d.trans}</p>
+                    </div>`;
+                gallery.appendChild(card);
+            });
+        }
+
+        // Filter button logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filterType = btn.dataset.filter;
+                const value = btn.dataset.value;
+                activeFilters[filterType] = value;
+
+                document.querySelectorAll(`.filter-btn[data-filter="${filterType}"]`).forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                applyFilters();
+            });
+        });
+
+        // Lightbox
+        function openLightbox(figNum) {
+            const d = allDiagrams.find(x => x.fig === figNum);
+            if (!d) return;
+            currentFig = figNum;
+
+            document.getElementById('lightbox-img').src = `/diagrams/img/${d.file}`;
+            document.getElementById('lb-title').textContent = d.title;
+            document.getElementById('lb-meta').textContent =
+                `Fig ${d.fig} · ${d.years} · ${d.engines.join(', ')} · ${d.trans}`;
+            document.getElementById('lb-fig-counter').textContent =
+                `Fig ${figNum} of ${allDiagrams.length}`;
+            document.getElementById('diagram-question').value = '';
+            document.getElementById('ai-answer-box').classList.add('hidden');
+            document.getElementById('lb-model-badge').textContent = '';
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('lightbox').scrollTop = 0;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function prevDiagram() {
+            if (currentFig > 1) openLightbox(currentFig - 1);
+        }
+
+        function nextDiagram() {
+            if (currentFig < allDiagrams.length) openLightbox(currentFig + 1);
+        }
+
+        // Close on backdrop click
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        // Keyboard nav
+        document.addEventListener('keydown', e => {
+            if (!document.getElementById('lightbox').classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevDiagram();
+            if (e.key === 'ArrowRight') nextDiagram();
+        });
+
+        function setQ(text) {
+            document.getElementById('diagram-question').value = text;
+            document.getElementById('diagram-question').focus();
+        }
+
+        async function askDiagram() {
+            const question = document.getElementById('diagram-question').value.trim();
+            if (!question) return;
+
+            const spinner = document.getElementById('ai-spinner');
+            const answerBox = document.getElementById('ai-answer-box');
+            const answerText = document.getElementById('ai-answer-text');
+            const answerModel = document.getElementById('ai-answer-model');
+            const badge = document.getElementById('lb-model-badge');
+
+            spinner.classList.add('active');
+            answerBox.classList.add('hidden');
+
+            try {
+                const res = await fetch('/api/ask_diagram', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ fig_num: currentFig, question })
+                });
+                const data = await res.json();
+                answerText.textContent = data.answer;
+                answerModel.textContent = data.model;
+                badge.textContent = data.model;
+                answerBox.classList.remove('hidden');
+            } catch (err) {
+                answerText.textContent = 'Error connecting to AI. Is Ollama running?';
+                answerBox.classList.remove('hidden');
+            } finally {
+                spinner.classList.remove('active');
+            }
+        }
+
+        loadDiagrams();
+
+        // ── Zoom (physical resize + container scroll for pan) ───
+        const imgContainer = document.getElementById('img-container');
+        const lbImg        = document.getElementById('lightbox-img');
+        const zoomLabel    = document.getElementById('zoom-level');
+
+        let scale = 1;
+        let baseWidth = 0;   // container width at time of open = 100% fit width
+
+        function applyZoom() {
+            const w = Math.round(baseWidth * scale);
+            lbImg.style.width  = w + 'px';
+            lbImg.style.height = 'auto';
+            zoomLabel.textContent = Math.round(scale * 100) + '%';
+        }
+
+        function zoomIn()   { scale = Math.min(scale * 1.35, 10); applyZoom(); }
+        function zoomOut()  { scale = Math.max(scale / 1.35, 1);  applyZoom(); }
+        function resetZoom(){ scale = 1; applyZoom(); imgContainer.scrollTop = 0; imgContainer.scrollLeft = 0; }
+
+        // Scroll wheel zoom — zoom toward cursor position
+        imgContainer.addEventListener('wheel', e => {
+            e.preventDefault();
+            const rect    = imgContainer.getBoundingClientRect();
+            const ratioX  = (e.clientX - rect.left  + imgContainer.scrollLeft) / lbImg.offsetWidth;
+            const ratioY  = (e.clientY - rect.top   + imgContainer.scrollTop)  / lbImg.offsetHeight;
+
+            const factor  = e.deltaY < 0 ? 1.15 : 0.87;
+            const oldW    = lbImg.offsetWidth;
+            scale         = Math.min(Math.max(scale * factor, 1), 10);
+            applyZoom();
+
+            // Scroll so the point under the cursor stays fixed
+            const newW = lbImg.offsetWidth;
+            imgContainer.scrollLeft += (newW - oldW) * ratioX;
+            imgContainer.scrollTop  += (newW - oldW) * ratioY * (lbImg.offsetHeight / lbImg.offsetWidth);
+        }, { passive: false });
+
+        // Double-click to reset
+        imgContainer.addEventListener('dblclick', resetZoom);
+
+        // Override openLightbox to reset zoom and set base width
+        const _origOpen = openLightbox;
+        openLightbox = function(figNum) {
+            _origOpen(figNum);
+            // After image loads, capture the fit width
+            lbImg.onload = () => {
+                baseWidth = imgContainer.clientWidth;
+                scale = 1;
+                applyZoom();
+            };
+            // If already cached (instant load)
+            if (lbImg.complete && lbImg.naturalWidth > 0) {
+                baseWidth = imgContainer.clientWidth;
+                scale = 1;
+                applyZoom();
+            }
+            document.getElementById('open-fullsize').href =
+                `/diagrams/img/fig_${String(figNum).padStart(2,'0')}.gif`;
+            imgContainer.scrollTop = 0;
+            imgContainer.scrollLeft = 0;
+        };
+    </script>
+
+</body>
+</html>
