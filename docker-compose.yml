@@ -2,7 +2,8 @@ services:
   web:
     build: .
     ports:
-      - "127.0.0.1:5001:5000"
+      - "0.0.0.0:5001:5000"
+    restart: unless-stopped
     volumes:
       - .:/app
     environment:
